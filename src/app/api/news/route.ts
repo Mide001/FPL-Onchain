@@ -22,10 +22,13 @@ export async function GET() {
       try {
         // Premier League league_id on Sportmonks is commonly 8
         const leagueId = 8;
-        const url = `https://api.sportmonks.com/v3/football/news?filter[league_id]=${leagueId}&fields[news]=title,short_description,thumbnail,updated_at,source,widget_url`;
-        const res = await fetch(url, {
+        const url = new URL('https://api.sportmonks.com/v3/football/news');
+        url.searchParams.set('api_token', sportmonksToken);
+        url.searchParams.set('filter[league]', String(leagueId));
+        url.searchParams.set('fields[news]', 'title,short_description,thumbnail,updated_at,source,widget_url');
+
+        const res = await fetch(url.toString(), {
           headers: {
-            Authorization: `Bearer ${sportmonksToken}`,
             Accept: 'application/json',
           },
           // Ensure we don't cache on server for fresher news
@@ -34,6 +37,7 @@ export async function GET() {
 
         if (res.ok) {
           const json = await res.json();
+          console.log('Sportmonks raw response (first items):', JSON.stringify((json?.data || []).slice(0, 3), null, 2));
           // v3 payload typically: { data: [ ...news ] }
           const items = (json?.data || []).map((n: any): NewsItem => {
             const title = n?.title || 'No title';
