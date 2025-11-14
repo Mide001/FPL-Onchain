@@ -126,7 +126,7 @@ export const OnboardingPage = () => {
               <div className="overflow-x-auto mb-4">
                 <table className="w-full text-sm border border-gray-200">
                   <thead>
-                    <tr className="border-b border-gray-200">
+                    <tr className="border-b border-gray-200 bg-purple-50">
                       <th className="text-center py-2 px-2 font-semibold text-black text-xs border-r border-gray-200 w-10">S/N</th>
                       <th className="text-left py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Team Name</th>
                       <th className="text-right py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Value</th>
@@ -135,7 +135,7 @@ export const OnboardingPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                    <tr className="border-b border-gray-200 hover:bg-purple-50/30 transition-colors bg-white">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">1</td>
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Thunder Strikers</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
@@ -150,12 +150,12 @@ export const OnboardingPage = () => {
                           />
                         </div>
                       </td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">245</td>
+                      <td className="py-2 px-2 text-right font-semibold text-purple-600 text-xs border-r border-gray-200">245</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
                       </td>
                     </tr>
-                    <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                    <tr className="border-b border-gray-200 hover:bg-purple-50/30 transition-colors bg-gray-50/50">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">2</td>
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Red Devils FC</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
@@ -170,12 +170,12 @@ export const OnboardingPage = () => {
                           />
                         </div>
                       </td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">238</td>
+                      <td className="py-2 px-2 text-right font-semibold text-purple-600 text-xs border-r border-gray-200">238</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr className="hover:bg-purple-50/30 transition-colors bg-white">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">3</td>
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Blue Warriors</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
@@ -190,7 +190,7 @@ export const OnboardingPage = () => {
                           />
                         </div>
                       </td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">232</td>
+                      <td className="py-2 px-2 text-right font-semibold text-purple-600 text-xs border-r border-gray-200">232</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-red-600 text-xs">↓</span>
                       </td>
