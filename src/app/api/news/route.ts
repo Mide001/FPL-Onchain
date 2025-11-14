@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+import Parser from 'rss-parser';
+
+const parser = new Parser();
 
 interface NewsItem {
   title: string;
@@ -12,28 +15,27 @@ export async function GET() {
   try {
     // Fetch from multiple sources for better coverage
     const sources = [
-      'https://www.premierleague.com/news/rss',
       'https://feeds.bbci.co.uk/sport/football/rss.xml',
+      'https://www.skysports.com/rss/12040',
     ];
 
     const allNews: NewsItem[] = [];
 
     for (const source of sources) {
       try {
-        const response = await fetch(source, {
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; FPL-Onchain/1.0)',
-          },
-          next: { revalidate: 3600 }, // Cache for 1 hour
-        });
-
-        if (!response.ok) continue;
-
-        const xml = await response.text();
+        const feed = await parser.parseURL(source);
         
-        // Parse RSS XML
-        const items = parseRSS(xml);
-        allNews.push(...items);
+        if (feed.items && feed.items.length > 0) {
+          const items: NewsItem[] = feed.items.map((item) => ({
+            title: item.title || 'No title',
+            description: item.contentSnippet || item.content || item.description || '',
+            link: item.link || '#',
+            pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
+            category: item.categories?.[0] || 'News',
+          }));
+          
+          allNews.push(...items);
+        }
       } catch (error) {
         console.error(`Error fetching from ${source}:`, error);
         continue;
@@ -41,19 +43,31 @@ export async function GET() {
     }
 
     // Filter for Premier League related news
+    const premierLeagueKeywords = [
+      'premier league',
+      'premier',
+      'arsenal', 'chelsea', 'liverpool', 'man city', 'man united', 'tottenham',
+      'newcastle', 'brighton', 'west ham', 'aston villa', 'crystal palace',
+      'fulham', 'wolves', 'everton', 'brentford', 'nottingham', 'burnley',
+      'luton', 'sheffield', 'bournemouth', 'palace'
+    ];
+
     const premierLeagueNews = allNews
-      .filter(item => 
-        item.title.toLowerCase().includes('premier league') ||
-        item.title.toLowerCase().includes('premier') ||
-        item.description.toLowerCase().includes('premier league') ||
-        item.title.match(/\b(Arsenal|Chelsea|Liverpool|Man City|Man United|Tottenham|Newcastle|Brighton|West Ham|Aston Villa|Crystal Palace|Fulham|Wolves|Everton|Brentford|Nottingham|Burnley|Luton|Sheffield)\b/i)
-      )
+      .filter(item => {
+        const titleLower = item.title.toLowerCase();
+        const descLower = item.description.toLowerCase();
+        return premierLeagueKeywords.some(keyword => 
+          titleLower.includes(keyword) || descLower.includes(keyword)
+        );
+      })
       .slice(0, 9); // Get top 9 items
 
     // Sort by date (newest first)
-    premierLeagueNews.sort((a, b) => 
-      new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-    );
+    premierLeagueNews.sort((a, b) => {
+      const dateA = new Date(a.pubDate).getTime();
+      const dateB = new Date(b.pubDate).getTime();
+      return dateB - dateA;
+    });
 
     return NextResponse.json(premierLeagueNews.slice(0, 3)); // Return top 3
   } catch (error) {
@@ -70,47 +84,5 @@ export async function GET() {
       },
     ]);
   }
-}
-
-function parseRSS(xml: string): NewsItem[] {
-  const items: NewsItem[] = [];
-  
-  // Simple RSS parser using regex (for production, consider using a proper XML parser)
-  const itemRegex = /<item[^>]*>([\s\S]*?)<\/item>/gi;
-  const matches = xml.matchAll(itemRegex);
-
-  for (const match of matches) {
-    const itemContent = match[1];
-    
-    const titleMatch = itemContent.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-    const descriptionMatch = itemContent.match(/<description[^>]*>([\s\S]*?)<\/description>/i);
-    const linkMatch = itemContent.match(/<link[^>]*>([\s\S]*?)<\/link>/i);
-    const pubDateMatch = itemContent.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i);
-    const categoryMatch = itemContent.match(/<category[^>]*>([\s\S]*?)<\/category>/i);
-
-    if (titleMatch && descriptionMatch) {
-      items.push({
-        title: cleanText(titleMatch[1]),
-        description: cleanText(descriptionMatch[1]),
-        link: linkMatch ? cleanText(linkMatch[1]) : '#',
-        pubDate: pubDateMatch ? cleanText(pubDateMatch[1]) : new Date().toISOString(),
-        category: categoryMatch ? cleanText(categoryMatch[1]) : 'News',
-      });
-    }
-  }
-
-  return items;
-}
-
-function cleanText(text: string): string {
-  return text
-    .replace(/<[^>]*>/g, '') // Remove HTML tags
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .trim();
 }
 
