@@ -105,12 +105,14 @@ export const OnboardingPage = () => {
                   position="FWD"
                   team="Man City"
                   price="14.0 USDC"
+                  photo="https://resources.premierleague.com/premierleague/photos/players/250x250/p223094.png"
                 />
                 <PlayerCard
                   name="Mohamed Salah"
                   position="MID"
                   team="Liverpool"
                   price="13.5 USDC"
+                  photo="https://resources.premierleague.com/premierleague/photos/players/250x250/p118748.png"
                 />
               </div>
             </div>

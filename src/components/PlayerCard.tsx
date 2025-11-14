@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image';
+
 interface PlayerCardProps {
   name: string;
   position: string;
@@ -12,9 +14,20 @@ export const PlayerCard = ({ name, position, team, price, photo }: PlayerCardPro
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-4 hover:border-purple-600 transition-all duration-200">
       <div className="flex items-center gap-4">
-        {/* Player Photo Placeholder */}
-        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
-          <span className="text-2xl">👤</span>
+        {/* Player Photo */}
+        <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-gray-100 relative">
+          {photo ? (
+            <Image 
+              src={photo} 
+              alt={name}
+              width={64}
+              height={64}
+              className="w-full h-full object-cover rounded-full"
+              unoptimized
+            />
+          ) : (
+            <span className="text-2xl">👤</span>
+          )}
         </div>
         
         {/* Player Info */}
