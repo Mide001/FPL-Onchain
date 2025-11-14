@@ -61,7 +61,7 @@ export const OnboardingPage = () => {
 
           {/* Three Column Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
               {/* Player Cards */}
               <div className="relative h-28 mb-6 group/cards flex items-center justify-start gap-2">
                 <div
@@ -123,7 +123,7 @@ export const OnboardingPage = () => {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               {/* League Table */}
               <div className="overflow-x-auto mb-4 -mt-4">
                 <table className="w-full text-sm border border-gray-200">
@@ -212,7 +212,7 @@ export const OnboardingPage = () => {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               {/* Wager Card */}
               <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-3 mb-4 -mt-4">
                 <div className="flex items-center justify-between mb-2">
