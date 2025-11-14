@@ -249,13 +249,15 @@ export const OnboardingPage = () => {
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
-                Create a Wager
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Compete with friends, place a wager and get rewarded if you get
-                the higher point for the week.
-              </p>
+              <div className="mt-auto">
+                <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
+                  Create a Wager
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  Compete with friends, place a wager and get rewarded if you get
+                  the higher point for the week.
+                </p>
+              </div>
             </div>
           </div>
         </div>
