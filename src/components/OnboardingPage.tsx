@@ -104,11 +104,11 @@ export const OnboardingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               {/* Player Cards */}
-              <div className="relative h-28 mb-6 group/cards">
+              <div className="relative h-28 mb-6 group/cards flex items-center justify-start gap-2">
                 <div 
-                  className="absolute top-0 left-0 w-24 transition-all duration-500 ease-out group-hover/cards:translate-x-0 group-hover/cards:translate-y-0 group-hover/cards:rotate-0"
+                  className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
                   style={{
-                    transform: 'translateX(-8px) translateY(4px) rotate(-3deg)',
+                    transform: 'rotate(-8deg)',
                   }}
                 >
                   <PlayerCard
@@ -121,9 +121,9 @@ export const OnboardingPage = () => {
                   />
                 </div>
                 <div 
-                  className="absolute top-0 left-0 w-24 transition-all duration-500 ease-out group-hover/cards:translate-x-16 group-hover/cards:translate-y-0 group-hover/cards:rotate-0"
+                  className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
                   style={{
-                    transform: 'translateX(-16px) translateY(8px) rotate(-6deg)',
+                    transform: 'rotate(8deg)',
                   }}
                 >
                   <PlayerCard
