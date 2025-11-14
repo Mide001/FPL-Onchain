@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'upload.wikimedia.org',
       },
+      {
+        protocol: 'https',
+        hostname: 'backend.liverpoolfc.com',
+      },
     ],
   },
   webpack: (config, { isServer }) => {
