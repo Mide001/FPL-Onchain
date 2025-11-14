@@ -13,12 +13,7 @@ interface PlayerCardProps {
 
 export const PlayerCard = ({ name, position, team, price, photo, index = 0 }: PlayerCardProps) => {
   return (
-    <div 
-      className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 hover:shadow-md transition-all duration-500 ease-out group"
-      style={{
-        transform: `translateX(${index * -8}px) translateY(${index * 4}px) rotate(${index * -3}deg)`,
-      }}
-    >
+    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 hover:shadow-md transition-all duration-200 group w-full">
       {/* Player Photo Section */}
       <div className="relative w-full aspect-square bg-gradient-to-br from-gray-50 to-gray-100">
         {photo ? (

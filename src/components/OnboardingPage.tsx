@@ -104,22 +104,13 @@ export const OnboardingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               {/* Player Cards */}
-              <div 
-                className="relative h-32 mb-6 group/cards"
-                onMouseEnter={(e) => {
-                  const cards = e.currentTarget.querySelectorAll('[data-card]');
-                  cards.forEach((card, i) => {
-                    (card as HTMLElement).style.transform = `translateX(${i * 60}px) translateY(0px) rotate(0deg)`;
-                  });
-                }}
-                onMouseLeave={(e) => {
-                  const cards = e.currentTarget.querySelectorAll('[data-card]');
-                  cards.forEach((card, i) => {
-                    (card as HTMLElement).style.transform = `translateX(${i * -8}px) translateY(${i * 4}px) rotate(${i * -3}deg)`;
-                  });
-                }}
-              >
-                <div className="absolute inset-0" data-card>
+              <div className="relative h-28 mb-6 group/cards">
+                <div 
+                  className="absolute top-0 left-0 w-24 transition-all duration-500 ease-out group-hover/cards:translate-x-0 group-hover/cards:translate-y-0 group-hover/cards:rotate-0"
+                  style={{
+                    transform: 'translateX(-8px) translateY(4px) rotate(-3deg)',
+                  }}
+                >
                   <PlayerCard
                     name="Erling Haaland"
                     position="FWD"
@@ -129,7 +120,12 @@ export const OnboardingPage = () => {
                     index={0}
                   />
                 </div>
-                <div className="absolute inset-0" data-card>
+                <div 
+                  className="absolute top-0 left-0 w-24 transition-all duration-500 ease-out group-hover/cards:translate-x-16 group-hover/cards:translate-y-0 group-hover/cards:rotate-0"
+                  style={{
+                    transform: 'translateX(-16px) translateY(8px) rotate(-6deg)',
+                  }}
+                >
                   <PlayerCard
                     name="Mohamed Salah"
                     position="MID"
