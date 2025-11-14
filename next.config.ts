@@ -61,6 +61,15 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.sportmonks.com',
       },
+      // Guardian image hosts
+      {
+        protocol: 'https',
+        hostname: 'media.guim.co.uk',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.guim.co.uk',
+      },
     ],
   },
   webpack: (config, { isServer }) => {

@@ -14,6 +14,42 @@ interface NewsItem {
 
 export async function GET() {
   try {
+    // Try The Guardian Content API first if API key is provided
+    const guardianApiKey = process.env.GUARDIAN_API_KEY;
+    if (guardianApiKey) {
+      try {
+        const url = new URL('https://content.guardianapis.com/search');
+        url.searchParams.set('section', 'football');
+        url.searchParams.set('q', 'premier league');
+        url.searchParams.set('order-by', 'newest');
+        url.searchParams.set('page-size', '9');
+        url.searchParams.set('show-fields', 'thumbnail,trailText,byline,short-url');
+        url.searchParams.set('api-key', guardianApiKey);
+        
+        const res = await fetch(url.toString(), { cache: 'no-store' });
+        if (res.ok) {
+          const json = await res.json();
+          const results = json?.response?.results || [];
+          const items: NewsItem[] = results.map((r: any) => ({
+            title: r?.webTitle || 'No title',
+            description: r?.fields?.trailText || '',
+            link: r?.webUrl || '#',
+            pubDate: r?.webPublicationDate || new Date().toISOString(),
+            category: r?.sectionName || 'News',
+            image: r?.fields?.thumbnail,
+          }));
+          if (items.length > 0) {
+            items.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+            return NextResponse.json(items.slice(0, 3));
+          }
+        } else {
+          console.error('Guardian response not OK:', res.status, await res.text().catch(() => ''));
+        }
+      } catch (err) {
+        console.error('Error fetching Guardian news:', err);
+      }
+    }
+
     // Try Sportmonks first if token is provided
     const sportmonksToken = process.env.SPORTMONKS_API_TOKEN;
     const sportmonksNews: NewsItem[] = [];
