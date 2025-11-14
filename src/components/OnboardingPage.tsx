@@ -104,15 +104,13 @@ export const OnboardingPage = () => {
                   name="Erling Haaland"
                   position="FWD"
                   team="Man City"
-                  price="£14.0M"
-                  points={187}
+                  price="14.0 USDC"
                 />
                 <PlayerCard
                   name="Mohamed Salah"
                   position="MID"
                   team="Liverpool"
-                  price="£13.5M"
-                  points={205}
+                  price="13.5 USDC"
                 />
               </div>
             </div>

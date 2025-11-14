@@ -5,11 +5,10 @@ interface PlayerCardProps {
   position: string;
   team: string;
   price: string;
-  points: number;
   photo?: string;
 }
 
-export const PlayerCard = ({ name, position, team, price, points, photo }: PlayerCardProps) => {
+export const PlayerCard = ({ name, position, team, price, photo }: PlayerCardProps) => {
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-4 hover:border-purple-600 transition-all duration-200">
       <div className="flex items-center gap-4">
@@ -30,10 +29,6 @@ export const PlayerCard = ({ name, position, team, price, points, photo }: Playe
             <span className="font-medium">{position}</span>
             <span>•</span>
             <span>{team}</span>
-          </div>
-          <div className="mt-2 flex items-center gap-2">
-            <span className="text-xs text-gray-500">Points:</span>
-            <span className="font-semibold text-black">{points}</span>
           </div>
         </div>
       </div>
