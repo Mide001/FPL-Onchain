@@ -1,6 +1,7 @@
 'use client'
 
 import { Navbar } from "@/components/Navbar";
+import { ConnectButton } from "@/components/ConnectButton";
 import { useAccount } from "wagmi";
 
 export const OnboardingPage = () => {
