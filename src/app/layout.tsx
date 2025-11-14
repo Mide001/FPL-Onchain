@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { headers } from 'next/headers' // added
 import './globals.css';
 import ContextProvider from '@/context'
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: "FPL-Onchain | Fantasy Premier League on Blockchain",
@@ -21,7 +22,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ContextProvider cookies={cookies}>{children}</ContextProvider>
+        <ContextProvider cookies={cookies}>
+          {children}
+          <Footer />
+        </ContextProvider>
       </body>
     </html>
   );
