@@ -137,7 +137,16 @@ export const OnboardingPage = () => {
                     <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">1</td>
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Thunder Strikers</td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">142.5 USDC</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
+                        <div className="flex items-center justify-end gap-1">
+                          <span>142.5</span>
+                          <svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="16" fill="#2775CA"/>
+                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 21.5c-5.238 0-9.5-4.262-9.5-9.5S10.762 6.5 16 6.5 25.5 10.762 25.5 16 21.238 25.5 16 25.5z" fill="white"/>
+                            <path d="M16 8.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5-3.358-7.5-7.5-7.5z" fill="#2775CA"/>
+                          </svg>
+                        </div>
+                      </td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">245</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
@@ -146,7 +155,16 @@ export const OnboardingPage = () => {
                     <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">2</td>
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Red Devils FC</td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">141.2 USDC</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
+                        <div className="flex items-center justify-end gap-1">
+                          <span>141.2</span>
+                          <svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="16" fill="#2775CA"/>
+                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 21.5c-5.238 0-9.5-4.262-9.5-9.5S10.762 6.5 16 6.5 25.5 10.762 25.5 16 21.238 25.5 16 25.5z" fill="white"/>
+                            <path d="M16 8.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5-3.358-7.5-7.5-7.5z" fill="#2775CA"/>
+                          </svg>
+                        </div>
+                      </td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">238</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
@@ -155,7 +173,16 @@ export const OnboardingPage = () => {
                     <tr className="hover:bg-gray-50 transition-colors">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">3</td>
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Blue Warriors</td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">140.8 USDC</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
+                        <div className="flex items-center justify-end gap-1">
+                          <span>140.8</span>
+                          <svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="16" fill="#2775CA"/>
+                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 21.5c-5.238 0-9.5-4.262-9.5-9.5S10.762 6.5 16 6.5 25.5 10.762 25.5 16 21.238 25.5 16 25.5z" fill="white"/>
+                            <path d="M16 8.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5-3.358-7.5-7.5-7.5z" fill="#2775CA"/>
+                          </svg>
+                        </div>
+                      </td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">232</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-red-600 text-xs">↓</span>
