@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/Navbar";
 import { PlayerCard } from "@/components/PlayerCard";
 import { useAccount } from "wagmi";
+import Image from "next/image";
 
 export const OnboardingPage = () => {
   const { isConnected } = useAccount();
@@ -140,11 +141,14 @@ export const OnboardingPage = () => {
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
                         <div className="flex items-center justify-end gap-1">
                           <span>142.5</span>
-                          <svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="16" cy="16" r="16" fill="#2775CA"/>
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 21.5c-5.238 0-9.5-4.262-9.5-9.5S10.762 6.5 16 6.5 25.5 10.762 25.5 16 21.238 25.5 16 25.5z" fill="white"/>
-                            <path d="M16 8.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5-3.358-7.5-7.5-7.5z" fill="#2775CA"/>
-                          </svg>
+                          <Image 
+                            src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=040"
+                            alt="USDC"
+                            width={12}
+                            height={12}
+                            className="flex-shrink-0"
+                            unoptimized
+                          />
                         </div>
                       </td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">245</td>
@@ -158,11 +162,14 @@ export const OnboardingPage = () => {
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
                         <div className="flex items-center justify-end gap-1">
                           <span>141.2</span>
-                          <svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="16" cy="16" r="16" fill="#2775CA"/>
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 21.5c-5.238 0-9.5-4.262-9.5-9.5S10.762 6.5 16 6.5 25.5 10.762 25.5 16 21.238 25.5 16 25.5z" fill="white"/>
-                            <path d="M16 8.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5-3.358-7.5-7.5-7.5z" fill="#2775CA"/>
-                          </svg>
+                          <Image 
+                            src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=040"
+                            alt="USDC"
+                            width={12}
+                            height={12}
+                            className="flex-shrink-0"
+                            unoptimized
+                          />
                         </div>
                       </td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">238</td>
@@ -176,11 +183,14 @@ export const OnboardingPage = () => {
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
                         <div className="flex items-center justify-end gap-1">
                           <span>140.8</span>
-                          <svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="16" cy="16" r="16" fill="#2775CA"/>
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 21.5c-5.238 0-9.5-4.262-9.5-9.5S10.762 6.5 16 6.5 25.5 10.762 25.5 16 21.238 25.5 16 25.5z" fill="white"/>
-                            <path d="M16 8.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5-3.358-7.5-7.5-7.5z" fill="#2775CA"/>
-                          </svg>
+                          <Image 
+                            src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=040"
+                            alt="USDC"
+                            width={12}
+                            height={12}
+                            className="flex-shrink-0"
+                            unoptimized
+                          />
                         </div>
                       </td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">232</td>

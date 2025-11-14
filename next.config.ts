@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.arsenal.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cryptologos.cc',
+      },
     ],
   },
   webpack: (config, { isServer }) => {
