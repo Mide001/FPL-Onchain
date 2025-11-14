@@ -103,17 +103,8 @@ export const OnboardingPage = () => {
           {/* Three Column Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
-              <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
-                Pick Your Squad
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm mb-6">
-                Build your squad of 15 Premier League players using USDC and
-                squad strength points, with a maximum squad strength of 100
-                points.
-              </p>
-
               {/* Player Cards */}
-              <div className="space-y-3 mt-6">
+              <div className="grid grid-cols-2 gap-3 mb-6">
                 <PlayerCard
                   name="Erling Haaland"
                   position="FWD"
@@ -129,6 +120,15 @@ export const OnboardingPage = () => {
                   photo="https://backend.liverpoolfc.com/sites/default/files/styles/sm/public/2025-09/mohamed-salah-2025-26-headshot-straight_d3131fc8d0587fe6937b5592e4afcfd5.webp?itok=OATKXCBP"
                 />
               </div>
+
+              <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
+                Pick Your Squad
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Build your squad of 15 Premier League players using USDC and
+                squad strength points, with a maximum squad strength of 100
+                points.
+              </p>
             </div>
 
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
