@@ -12,8 +12,8 @@ export const OnboardingPage = () => {
       // Navigate to game page when implemented
       alert('Game page coming soon!');
     } else {
-      // Scroll to connect button
-      document.getElementById('connect-section')?.scrollIntoView({ behavior: 'smooth' });
+      // Open connect modal
+      // The connect button in navbar will handle this
     }
   };
 
@@ -89,23 +89,6 @@ export const OnboardingPage = () => {
               </p>
             </div>
           </div>
-
-          {/* Connect Section */}
-          {!isConnected && (
-            <div id="connect-section" className="mt-16 text-center">
-              <div className="bg-gray-50 rounded-lg p-12 border border-gray-200 max-w-2xl mx-auto">
-                <h2 className="text-3xl font-bold text-black mb-4 tracking-tight">
-                  Ready to Start Playing?
-                </h2>
-                <p className="text-gray-600 mb-8 text-base">
-                  Connect your wallet to create your team and start competing
-                </p>
-                <div className="flex justify-center">
-                  <ConnectButton />
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
