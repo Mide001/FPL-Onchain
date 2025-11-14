@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { PlayerCard } from "@/components/PlayerCard";
-import { useAccount } from "wagmi";
+import { useAppKitAccount } from "@reown/appkit/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -15,7 +15,7 @@ interface NewsItem {
 }
 
 export const OnboardingPage = () => {
-  const { isConnected } = useAccount();
+  const { isConnected } = useAppKitAccount();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
 
