@@ -123,44 +123,36 @@ export const OnboardingPage = () => {
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               {/* League Table */}
               <div className="overflow-x-auto mb-4">
-                <table className="w-full text-sm">
+                <table className="w-full text-sm border border-gray-200">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="text-left py-2 px-2 font-semibold text-black text-xs">Name</th>
-                      <th className="text-left py-2 px-2 font-semibold text-black text-xs">Team</th>
-                      <th className="text-right py-2 px-2 font-semibold text-black text-xs">Points</th>
+                      <th className="text-left py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Name</th>
+                      <th className="text-left py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Team</th>
+                      <th className="text-right py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Points</th>
                       <th className="text-center py-2 px-2 font-semibold text-black text-xs w-8"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="py-2 px-2 text-gray-700 text-xs">Alex Johnson</td>
-                      <td className="py-2 px-2 text-gray-600 text-xs">Man City</td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">245</td>
+                    <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Alex Johnson</td>
+                      <td className="py-2 px-2 text-gray-600 text-xs border-r border-gray-200">Man City</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">245</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
                       </td>
                     </tr>
-                    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="py-2 px-2 text-gray-700 text-xs">Sarah Williams</td>
-                      <td className="py-2 px-2 text-gray-600 text-xs">Liverpool</td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">238</td>
+                    <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Sarah Williams</td>
+                      <td className="py-2 px-2 text-gray-600 text-xs border-r border-gray-200">Liverpool</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">238</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
-                      </td>
-                    </tr>
-                    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="py-2 px-2 text-gray-700 text-xs">Mike Brown</td>
-                      <td className="py-2 px-2 text-gray-600 text-xs">Arsenal</td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">232</td>
-                      <td className="py-2 px-2 text-center">
-                        <span className="text-red-600 text-xs">↓</span>
                       </td>
                     </tr>
                     <tr className="hover:bg-gray-50 transition-colors">
-                      <td className="py-2 px-2 text-gray-700 text-xs">Emma Davis</td>
-                      <td className="py-2 px-2 text-gray-600 text-xs">Chelsea</td>
-                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">228</td>
+                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Mike Brown</td>
+                      <td className="py-2 px-2 text-gray-600 text-xs border-r border-gray-200">Arsenal</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">232</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-red-600 text-xs">↓</span>
                       </td>
