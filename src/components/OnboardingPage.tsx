@@ -104,21 +104,41 @@ export const OnboardingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               {/* Player Cards */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <PlayerCard
-                  name="Erling Haaland"
-                  position="FWD"
-                  team="Man City"
-                  price="14.0 USDC"
-                  photo="https://resources.premierleague.com/premierleague/photos/players/250x250/p223094.png"
-                />
-                <PlayerCard
-                  name="Mohamed Salah"
-                  position="MID"
-                  team="Liverpool"
-                  price="13.5 USDC"
-                  photo="https://backend.liverpoolfc.com/sites/default/files/styles/sm/public/2025-09/mohamed-salah-2025-26-headshot-straight_d3131fc8d0587fe6937b5592e4afcfd5.webp?itok=OATKXCBP"
-                />
+              <div 
+                className="relative h-32 mb-6 group/cards"
+                onMouseEnter={(e) => {
+                  const cards = e.currentTarget.querySelectorAll('[data-card]');
+                  cards.forEach((card, i) => {
+                    (card as HTMLElement).style.transform = `translateX(${i * 60}px) translateY(0px) rotate(0deg)`;
+                  });
+                }}
+                onMouseLeave={(e) => {
+                  const cards = e.currentTarget.querySelectorAll('[data-card]');
+                  cards.forEach((card, i) => {
+                    (card as HTMLElement).style.transform = `translateX(${i * -8}px) translateY(${i * 4}px) rotate(${i * -3}deg)`;
+                  });
+                }}
+              >
+                <div className="absolute inset-0" data-card>
+                  <PlayerCard
+                    name="Erling Haaland"
+                    position="FWD"
+                    team="Man City"
+                    price="14.0 USDC"
+                    photo="https://resources.premierleague.com/premierleague/photos/players/250x250/p223094.png"
+                    index={0}
+                  />
+                </div>
+                <div className="absolute inset-0" data-card>
+                  <PlayerCard
+                    name="Mohamed Salah"
+                    position="MID"
+                    team="Liverpool"
+                    price="13.5 USDC"
+                    photo="https://backend.liverpoolfc.com/sites/default/files/styles/sm/public/2025-09/mohamed-salah-2025-26-headshot-straight_d3131fc8d0587fe6937b5592e4afcfd5.webp?itok=OATKXCBP"
+                    index={1}
+                  />
+                </div>
               </div>
 
               <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
