@@ -58,57 +58,15 @@ export const OnboardingPage = () => {
             </div>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
-              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-2xl">⚽</span>
-              </div>
-              <h3 className="text-xl font-semibold text-black mb-3 tracking-tight">
-                Build Your Team
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Select your fantasy team of Premier League players and lock it
-                securely on-chain before each gameweek.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
-              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-2xl">📊</span>
-              </div>
-              <h3 className="text-xl font-semibold text-black mb-3 tracking-tight">
-                Earn Points
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Points are automatically calculated based on real match
-                performances and recorded on-chain.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
-              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-2xl">💰</span>
-              </div>
-              <h3 className="text-xl font-semibold text-black mb-3 tracking-tight">
-                Win Rewards
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Compete for crypto rewards. Top performers get paid
-                automatically via smart contracts.
-              </p>
-            </div>
-          </div>
-
           {/* Three Column Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               {/* Player Cards */}
               <div className="relative h-28 mb-6 group/cards flex items-center justify-start gap-2">
-                <div 
+                <div
                   className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
                   style={{
-                    transform: 'rotate(-10deg)',
+                    transform: "rotate(-10deg)",
                   }}
                 >
                   <PlayerCard
@@ -120,10 +78,10 @@ export const OnboardingPage = () => {
                     index={0}
                   />
                 </div>
-                <div 
+                <div
                   className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
                   style={{
-                    transform: 'rotate(0deg)',
+                    transform: "rotate(0deg)",
                   }}
                 >
                   <PlayerCard
@@ -135,10 +93,10 @@ export const OnboardingPage = () => {
                     index={1}
                   />
                 </div>
-                <div 
+                <div
                   className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
                   style={{
-                    transform: 'rotate(10deg)',
+                    transform: "rotate(10deg)",
                   }}
                 >
                   <PlayerCard
@@ -166,10 +124,45 @@ export const OnboardingPage = () => {
               <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
                 Create and Join Leagues
               </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
+              <p className="text-gray-600 leading-relaxed text-sm mb-4">
                 Play against friends and family, colleagues or a web community
                 in invitational leagues and cups.
               </p>
+
+              {/* League Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="text-left py-2 px-2 font-semibold text-black text-xs">Name</th>
+                      <th className="text-left py-2 px-2 font-semibold text-black text-xs">Team</th>
+                      <th className="text-right py-2 px-2 font-semibold text-black text-xs">Points</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <td className="py-2 px-2 text-gray-700 text-xs">Alex Johnson</td>
+                      <td className="py-2 px-2 text-gray-600 text-xs">Man City</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">245</td>
+                    </tr>
+                    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <td className="py-2 px-2 text-gray-700 text-xs">Sarah Williams</td>
+                      <td className="py-2 px-2 text-gray-600 text-xs">Liverpool</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">238</td>
+                    </tr>
+                    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <td className="py-2 px-2 text-gray-700 text-xs">Mike Brown</td>
+                      <td className="py-2 px-2 text-gray-600 text-xs">Arsenal</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">232</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <td className="py-2 px-2 text-gray-700 text-xs">Emma Davis</td>
+                      <td className="py-2 px-2 text-gray-600 text-xs">Chelsea</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs">228</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
