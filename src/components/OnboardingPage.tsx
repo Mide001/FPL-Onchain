@@ -26,7 +26,7 @@ export const OnboardingPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-24">
             {/* Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-600 mb-8">
               <span className="text-3xl">⚽</span>
             </div>
             
@@ -34,7 +34,7 @@ export const OnboardingPage = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-black mb-6 leading-[1.1] tracking-tight">
               Fantasy Premier League
               <br />
-              <span className="text-black/80">On the Blockchain</span>
+              <span className="text-purple-600">On the Blockchain</span>
             </h1>
             
             {/* Description */}
@@ -47,7 +47,7 @@ export const OnboardingPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
               <button
                 onClick={handlePlayGame}
-                className="px-10 py-4 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition-all duration-200 text-base tracking-tight border border-black shadow-sm hover:shadow-md"
+                className="px-10 py-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-all duration-200 text-base tracking-tight shadow-sm hover:shadow-md"
               >
                 {isConnected ? 'Play Game' : 'Get Started'}
               </button>
@@ -59,8 +59,8 @@ export const OnboardingPage = () => {
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-black transition-all duration-200 group">
-              <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
+              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">⚽</span>
               </div>
               <h3 className="text-xl font-semibold text-black mb-3 tracking-tight">Build Your Team</h3>
@@ -69,8 +69,8 @@ export const OnboardingPage = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-black transition-all duration-200 group">
-              <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
+              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">📊</span>
               </div>
               <h3 className="text-xl font-semibold text-black mb-3 tracking-tight">Earn Points</h3>
@@ -79,8 +79,8 @@ export const OnboardingPage = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-black transition-all duration-200 group">
-              <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
+              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">💰</span>
               </div>
               <h3 className="text-xl font-semibold text-black mb-3 tracking-tight">Win Rewards</h3>

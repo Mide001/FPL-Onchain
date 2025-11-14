@@ -24,7 +24,7 @@ export const ConnectButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="px-5 py-2.5 bg-black text-white font-medium rounded-lg hover:bg-gray-900 transition-all duration-200 border border-black text-sm tracking-tight"
+      className="px-5 py-2.5 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-all duration-200 text-sm tracking-tight"
     >
       {isConnected && address ? formatAddress(address) : 'Login'}
     </button>
