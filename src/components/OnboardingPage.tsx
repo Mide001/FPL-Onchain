@@ -1,6 +1,7 @@
 'use client'
 
 import { Navbar } from "@/components/Navbar";
+import { PlayerCard } from "@/components/PlayerCard";
 import { useAccount } from "wagmi";
 
 export const OnboardingPage = () => {
@@ -93,9 +94,27 @@ export const OnboardingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">Pick Your Squad</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
+              <p className="text-gray-600 leading-relaxed text-sm mb-6">
                 Build your squad of 15 Premier League players using USDC and squad strength points, with a maximum squad strength of 100 points.
               </p>
+              
+              {/* Player Cards */}
+              <div className="space-y-3 mt-6">
+                <PlayerCard
+                  name="Erling Haaland"
+                  position="FWD"
+                  team="Man City"
+                  price="£14.0M"
+                  points={187}
+                />
+                <PlayerCard
+                  name="Mohamed Salah"
+                  position="MID"
+                  team="Liverpool"
+                  price="£13.5M"
+                  points={205}
+                />
+              </div>
             </div>
 
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
