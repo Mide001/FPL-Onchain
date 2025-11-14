@@ -42,11 +42,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.skysports.com',
+        hostname: 'skysports.com',
       },
       {
         protocol: 'https',
-        hostname: '*.bbci.co.uk',
+        hostname: 'bbci.co.uk',
       },
     ],
   },
