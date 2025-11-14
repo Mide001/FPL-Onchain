@@ -14,6 +14,57 @@ interface NewsItem {
 
 export async function GET() {
   try {
+    // Try Sportmonks first if token is provided
+    const sportmonksToken = process.env.SPORTMONKS_API_TOKEN;
+    const sportmonksNews: NewsItem[] = [];
+
+    if (sportmonksToken) {
+      try {
+        // Premier League league_id on Sportmonks is commonly 8
+        const leagueId = 8;
+        const url = `https://api.sportmonks.com/v3/football/news?filter[league_id]=${leagueId}&fields[news]=title,short_description,thumbnail,updated_at,source,widget_url`;
+        const res = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${sportmonksToken}`,
+            Accept: 'application/json',
+          },
+          // Ensure we don't cache on server for fresher news
+          cache: 'no-store',
+        });
+
+        if (res.ok) {
+          const json = await res.json();
+          // v3 payload typically: { data: [ ...news ] }
+          const items = (json?.data || []).map((n: any): NewsItem => {
+            const title = n?.title || 'No title';
+            const description = n?.short_description || '';
+            const link = n?.widget_url || n?.source || '#';
+            const pubDate = n?.updated_at || new Date().toISOString();
+            const image = n?.thumbnail || undefined;
+            return {
+              title,
+              description,
+              link,
+              pubDate,
+              category: 'Premier League',
+              image,
+            };
+          }) as NewsItem[];
+
+          // If Sportmonks returns items, prefer them (limit to 3)
+          if (items.length > 0) {
+            // Sort newest first by pubDate if available
+            items.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+            return NextResponse.json(items.slice(0, 3));
+          }
+        } else {
+          console.error('Sportmonks response not OK:', res.status, await res.text().catch(() => ''));
+        }
+      } catch (err) {
+        console.error('Error fetching Sportmonks news:', err);
+      }
+    }
+
     // Fetch from multiple sources for better coverage
     const sources = [
       'https://feeds.bbci.co.uk/sport/football/rss.xml',
