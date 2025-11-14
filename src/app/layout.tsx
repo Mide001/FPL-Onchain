@@ -6,8 +6,8 @@ import './globals.css';
 import ContextProvider from '@/context'
 
 export const metadata: Metadata = {
-  title: "AppKit in Next.js + wagmi",
-  description: "AppKit example dApp",
+  title: "FPL-Onchain | Fantasy Premier League on Blockchain",
+  description: "Play Fantasy Premier League on the blockchain. Build your dream team, earn points, and get rewarded with crypto - all on-chain.",
 };
 
 export default async function RootLayout({
