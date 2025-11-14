@@ -61,7 +61,7 @@ export const OnboardingPage = () => {
 
           {/* Three Column Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col">
               {/* Player Cards */}
               <div className="relative h-28 mb-6 group/cards flex items-center justify-start gap-2">
                 <div
@@ -111,17 +111,19 @@ export const OnboardingPage = () => {
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
-                Pick Your Squad
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Build your squad of 15 Premier League players using USDC and
-                squad strength points, with a maximum squad strength of 100
-                points.
-              </p>
+              <div className="mt-auto">
+                <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
+                  Pick Your Squad
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  Build your squad of 15 Premier League players using USDC and
+                  squad strength points, with a maximum squad strength of 100
+                  points.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col">
               {/* League Table */}
               <div className="overflow-x-auto mb-4 -mt-4">
                 <table className="w-full text-sm border border-gray-200">
@@ -199,13 +201,15 @@ export const OnboardingPage = () => {
                 </table>
               </div>
 
-              <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
-                Create and Join Leagues
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Play against friends and family, colleagues or a web community
-                in invitational leagues and cups.
-              </p>
+              <div className="mt-auto">
+                <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
+                  Create and Join Leagues
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  Play against friends and family, colleagues or a web community
+                  in invitational leagues and cups.
+                </p>
+              </div>
             </div>
 
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col">
