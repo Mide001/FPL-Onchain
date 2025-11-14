@@ -117,8 +117,7 @@ contract PlayerToken is ERC20, Ownable {
         
         uint256 proceeds = getSellPrice(amount);
         require(proceeds > 0, "Invalid proceeds");
-        require(address(this).balance >= proceeds || 
-                paymentToken.balanceOf(address(this)) >= proceeds, "Insufficient reserves");
+        require(paymentToken.balanceOf(address(this)) >= proceeds, "Insufficient reserves");
         
         // Burn tokens
         _burn(msg.sender, amount);
