@@ -1,6 +1,7 @@
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 import { base, optimism } from "@reown/appkit/networks";
 import type { AppKitNetwork } from "@reown/appkit/networks";
+import type { Config } from "wagmi";
 
 // Get projectId from https://dashboard.reown.com
 export const projectId =
@@ -19,4 +20,4 @@ export const wagmiAdapter = new WagmiAdapter({
   networks,
 });
 
-export const config = wagmiAdapter.wagmiConfig;
+export const config: Config = wagmiAdapter.wagmiConfig;
