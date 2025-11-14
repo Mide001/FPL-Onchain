@@ -209,6 +209,45 @@ export const OnboardingPage = () => {
             </div>
 
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
+              {/* Wager Card */}
+              <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-4 mb-4">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h4 className="font-semibold text-black text-sm mb-1">Thunder Strikers</h4>
+                    <p className="text-xs text-gray-600">Week 15 Results</p>
+                  </div>
+                  <div className="flex items-center gap-1 bg-green-100 px-2 py-1 rounded-full">
+                    <span className="text-green-700 font-semibold text-xs">+30</span>
+                    <Image 
+                      src="/usdc.png"
+                      alt="USDC"
+                      width={12}
+                      height={12}
+                      className="flex-shrink-0"
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <p className="text-gray-500 mb-0.5">Points</p>
+                    <p className="font-semibold text-black">68</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500 mb-0.5">Team Value</p>
+                    <p className="font-semibold text-black">138.2 USDC</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500 mb-0.5">Goals</p>
+                    <p className="font-semibold text-black">4</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500 mb-0.5">Assists</p>
+                    <p className="font-semibold text-black">3</p>
+                  </div>
+                </div>
+              </div>
+
               <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">
                 Create a Wager
               </h3>
