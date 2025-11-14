@@ -142,12 +142,11 @@ export const OnboardingPage = () => {
                         <div className="flex items-center justify-end gap-1">
                           <span>142.5</span>
                           <Image 
-                            src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=040"
+                            src="/usdc.png"
                             alt="USDC"
                             width={12}
                             height={12}
                             className="flex-shrink-0"
-                            unoptimized
                           />
                         </div>
                       </td>
@@ -163,12 +162,11 @@ export const OnboardingPage = () => {
                         <div className="flex items-center justify-end gap-1">
                           <span>141.2</span>
                           <Image 
-                            src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=040"
+                            src="/usdc.png"
                             alt="USDC"
                             width={12}
                             height={12}
                             className="flex-shrink-0"
-                            unoptimized
                           />
                         </div>
                       </td>
@@ -184,12 +182,11 @@ export const OnboardingPage = () => {
                         <div className="flex items-center justify-end gap-1">
                           <span>140.8</span>
                           <Image 
-                            src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=040"
+                            src="/usdc.png"
                             alt="USDC"
                             width={12}
                             height={12}
                             className="flex-shrink-0"
-                            unoptimized
                           />
                         </div>
                       </td>
