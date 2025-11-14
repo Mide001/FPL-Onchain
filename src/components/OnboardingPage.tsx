@@ -213,8 +213,8 @@ export const OnboardingPage = () => {
               <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-4 mb-4">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h4 className="font-semibold text-black text-sm mb-1">Thunder Strikers</h4>
-                    <p className="text-xs text-gray-600">Week 15 Results</p>
+                    <p className="text-xs text-gray-600 mb-1">Week 15 Wager</p>
+                    <h4 className="font-semibold text-black text-sm">You Won! 🎉</h4>
                   </div>
                   <div className="flex items-center gap-1 bg-green-100 px-2 py-1 rounded-full">
                     <span className="text-green-700 font-semibold text-xs">+30</span>
@@ -228,22 +228,25 @@ export const OnboardingPage = () => {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div>
-                    <p className="text-gray-500 mb-0.5">Points</p>
-                    <p className="font-semibold text-black">68</p>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center justify-between p-2 bg-white rounded border border-gray-200">
+                    <div>
+                      <p className="font-semibold text-black">Thunder Strikers</p>
+                      <p className="text-gray-500 text-[10px]">Your Team</p>
+                    </div>
+                    <p className="font-bold text-purple-600">68 pts</p>
                   </div>
-                  <div>
-                    <p className="text-gray-500 mb-0.5">Team Value</p>
-                    <p className="font-semibold text-black">138.2 USDC</p>
+                  
+                  <div className="flex items-center justify-center py-1">
+                    <span className="text-gray-400 text-lg">vs</span>
                   </div>
-                  <div>
-                    <p className="text-gray-500 mb-0.5">Goals</p>
-                    <p className="font-semibold text-black">4</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-500 mb-0.5">Assists</p>
-                    <p className="font-semibold text-black">3</p>
+                  
+                  <div className="flex items-center justify-between p-2 bg-gray-50 rounded border border-gray-200">
+                    <div>
+                      <p className="font-semibold text-black">Red Devils FC</p>
+                      <p className="text-gray-500 text-[10px]">Opponent</p>
+                    </div>
+                    <p className="font-bold text-gray-600">62 pts</p>
                   </div>
                 </div>
               </div>
