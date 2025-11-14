@@ -338,38 +338,53 @@ export const OnboardingPage = () => {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 transition-all duration-200 group cursor-pointer block"
+                  className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-purple-600 transition-all duration-200 group cursor-pointer block shadow-sm hover:shadow-md hover:-translate-y-0.5"
                   >
-                    <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100 relative overflow-hidden">
+                  <div className="h-52 relative overflow-hidden">
+                    <div className="absolute inset-0">
                       {item.image ? (
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-200"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
                           unoptimized
                         />
                       ) : (
-                        <div className="w-full h-full" />
+                        <div className="w-full h-full bg-gradient-to-br from-purple-100 to-gray-100" />
                       )}
                     </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs text-gray-500">{formatTimeAgo(item.pubDate)}</span>
-                        {item.category && (
-                          <>
-                            <span className="text-gray-300">•</span>
-                            <span className="text-xs text-purple-600 font-medium">{item.category}</span>
-                          </>
-                        )}
-                      </div>
-                      <h3 className="text-lg font-semibold text-black mb-2 group-hover:text-purple-600 transition-colors line-clamp-2">
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    {/* Top badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                      {item.category ? (
+                        <span className="inline-flex items-center rounded-full bg-white/85 backdrop-blur px-2.5 py-1 text-[10px] font-medium text-gray-800 border border-white/60 shadow-sm">
+                          {item.category}
+                        </span>
+                      ) : <span />}
+                      <span className="inline-flex items-center rounded-full bg-black/50 backdrop-blur px-2 py-1 text-[10px] font-medium text-white">
+                        {formatTimeAgo(item.pubDate)}
+                      </span>
+                    </div>
+                    {/* Title on image */}
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <h3 className="text-white text-base md:text-lg font-semibold leading-snug line-clamp-2 drop-shadow">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                        {item.description}
-                      </p>
                     </div>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-3">
+                      {item.description}
+                    </p>
+                    <div className="flex items-center text-sm font-medium text-purple-600 group-hover:text-purple-700">
+                      <span>Read article</span>
+                      <svg className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5.0 5.0a1 1 0 010 1.414l-5.0 5.0a1 1 0 01-1.414-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
                   </a>
                 ))
               ) : (
