@@ -12,41 +12,38 @@ interface PlayerCardProps {
 
 export const PlayerCard = ({ name, position, team, price, photo }: PlayerCardProps) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 hover:border-purple-600 transition-all duration-200">
-      <div className="flex items-center gap-4">
-        {/* Player Photo */}
-        <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-gray-100 relative">
-          {photo ? (
-            <Image 
-              src={photo} 
-              alt={name}
-              width={64}
-              height={64}
-              className="w-full h-full object-cover rounded-full object-top"
-              style={{ objectPosition: 'top center' }}
-              unoptimized
-            />
-          ) : (
-            <span className="text-2xl">👤</span>
-          )}
+    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 hover:shadow-lg transition-all duration-200 group">
+      {/* Player Photo Section */}
+      <div className="relative w-full aspect-square bg-gradient-to-br from-gray-50 to-gray-100">
+        {photo ? (
+          <Image 
+            src={photo} 
+            alt={name}
+            fill
+            className="object-cover object-top"
+            style={{ objectPosition: 'top center' }}
+            unoptimized
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-6xl">👤</span>
+          </div>
+        )}
+        {/* Price Badge */}
+        <div className="absolute top-3 right-3 bg-purple-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+          {price}
         </div>
-        
-        {/* Player Info */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between mb-1">
-            <h4 className="font-semibold text-black text-sm truncate">{name}</h4>
-            <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded">
-              {price}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 text-xs text-gray-600">
-            <span className="font-medium">{position}</span>
-            <span>•</span>
-            <span>{team}</span>
-          </div>
+      </div>
+      
+      {/* Player Info Section */}
+      <div className="p-4">
+        <h4 className="font-semibold text-black text-base mb-1 truncate">{name}</h4>
+        <div className="flex items-center gap-2 text-xs text-gray-600">
+          <span className="font-medium bg-gray-100 px-2 py-0.5 rounded">{position}</span>
+          <span className="text-gray-400">•</span>
+          <span className="truncate">{team}</span>
         </div>
       </div>
     </div>
   );
 };
-
