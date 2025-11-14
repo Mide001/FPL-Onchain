@@ -51,7 +51,7 @@ export const OnboardingPage = () => {
               >
                 {isConnected ? 'Play Game' : 'Get Started'}
               </button>
-              <button className="px-10 py-4 bg-white text-black font-semibold rounded-lg border-2 border-black hover:bg-black hover:text-white transition-all duration-200 text-base tracking-tight">
+              <button className="px-10 py-4 bg-white text-black font-semibold rounded-lg border-2 border-gray-300 hover:border-purple-600 hover:text-purple-600 transition-all duration-200 text-base tracking-tight">
                 Learn More
               </button>
             </div>
