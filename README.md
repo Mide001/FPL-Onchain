@@ -43,15 +43,23 @@ FPL-Onchain brings the excitement of Fantasy Premier League to the blockchain. C
    cp .env.example .env
    ```
    
-   Then add your Reown Project ID:
+   Then add your configuration:
    ```env
+   # Frontend
    NEXT_PUBLIC_PROJECT_ID=your_project_id_here
+   
+   # Smart Contract Deployment (optional - for deploying contracts)
+   PRIVATE_KEY=your_private_key_here
+   GUARDIAN_API_KEY=your_guardian_api_key_here
+   SPORTMONKS_API_TOKEN=your_sportmonks_token_here
    ```
    
-   To get your Project ID:
+   To get your Reown Project ID:
    - Go to [Reown Dashboard](https://dashboard.reown.com)
    - Create a new project
    - Copy your Project ID and paste it in the `.env` file
+   
+   **Note**: Only add `PRIVATE_KEY` if you plan to deploy contracts. Never commit your `.env` file!
 
 4. **Run the development server**
    ```bash
@@ -85,6 +93,12 @@ FPL-Onchain brings the excitement of Fantasy Premier League to the blockchain. C
 
 ```
 FPL-Onchain/
+├── contracts/            # Solidity smart contracts
+│   ├── PlayerToken.sol   # ERC20 token with bonding curve for players
+│   └── PlayerTokenFactory.sol  # Factory to deploy player tokens
+├── scripts/              # Deployment scripts
+│   └── deploy.ts         # Contract deployment script
+├── test/                 # Contract tests
 ├── src/
 │   ├── app/              # Next.js App Router pages
 │   ├── components/       # React components
@@ -95,12 +109,86 @@ FPL-Onchain/
 └── .env.example          # Environment variables template
 ```
 
+## 📜 Smart Contracts
+
+### Base Sepolia Testnet Deployment
+
+**Network**: Base Sepolia (Chain ID: 84532)
+
+**Deployed Contracts**:
+- **PlayerTokenFactory**: `0xCAB1FaDab790C4960fEbB792AEF31fA6a0c1D404`
+- **Example Player Token (Erling Haaland)**: `0x5536F00b643273a8e4849183e7365Ce2107b7eac`
+
+**USDC Address**: `0x036CbD53842c5426634e7929541eC2318f3dCF7e`
+
+**Explorer Links**:
+- Factory: [View on Basescan](https://sepolia.basescan.org/address/0xCAB1FaDab790C4960fEbB792AEF31fA6a0c1D404)
+- Example Token: [View on Basescan](https://sepolia.basescan.org/address/0x5536F00b643273a8e4849183e7365Ce2107b7eac)
+
+### Contract Features
+
+- **PlayerToken**: ERC20 token with Zora-style bonding curve mechanism
+  - Buy/sell tokens with automatic price discovery
+  - Linear bonding curve: price increases as supply increases
+  - Maximum supply: 1M tokens per player
+  
+- **PlayerTokenFactory**: Factory contract to deploy player tokens
+  - Creates unique tokens for each player
+  - Tracks all deployed tokens
+  - Manages player-to-token mappings
+
+### Deploying Contracts
+
+1. **Set up environment variables**
+   
+   Add to your `.env` file:
+   ```env
+   PRIVATE_KEY=your_private_key_here
+   BASE_SEPOLIA_RPC_URL=https://sepolia.base.org  # Optional, has default
+   BASE_SEPOLIA_USDC_ADDRESS=0x036CbD53842c5426634e7929541eC2318f3dCF7e  # Optional, has default
+   ```
+
+2. **Compile contracts**
+   ```bash
+   npm run compile
+   ```
+
+3. **Deploy to Base Sepolia**
+   ```bash
+   npm run deploy:base-sepolia
+   ```
+
+4. **Other deployment options**
+   ```bash
+   npm run deploy:base              # Base Mainnet
+   npm run deploy:optimism          # Optimism Mainnet
+   npm run deploy:optimism-sepolia  # Optimism Sepolia
+   npm run deploy:local             # Local Hardhat node
+   ```
+
+### Running Tests
+
+```bash
+npm run test:contracts
+```
+
 ## 🔧 Available Scripts
 
-- `pnpm run dev` - Start development server
-- `pnpm run build` - Build for production
-- `pnpm run start` - Start production server
-- `pnpm run lint` - Run ESLint
+### Frontend
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Smart Contracts
+- `npm run compile` - Compile Solidity contracts
+- `npm run test:contracts` - Run contract tests
+- `npm run deploy:base-sepolia` - Deploy to Base Sepolia testnet
+- `npm run deploy:base` - Deploy to Base Mainnet
+- `npm run deploy:optimism` - Deploy to Optimism Mainnet
+- `npm run deploy:optimism-sepolia` - Deploy to Optimism Sepolia testnet
+- `npm run deploy:local` - Deploy to local Hardhat node
+- `npm run node` - Start local Hardhat node
 
 ## 🤝 Contributing
 
