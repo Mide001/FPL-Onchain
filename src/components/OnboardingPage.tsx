@@ -357,9 +357,7 @@ export const OnboardingPage = () => {
                           unoptimized
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-6xl">{getEmoji(index)}</span>
-                        </div>
+                        <div className="w-full h-full" />
                       )}
                     </div>
                     <div className="p-6">
