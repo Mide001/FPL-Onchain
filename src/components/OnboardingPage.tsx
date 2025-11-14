@@ -108,7 +108,7 @@ export const OnboardingPage = () => {
                 <div 
                   className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
                   style={{
-                    transform: 'rotate(-8deg)',
+                    transform: 'rotate(-10deg)',
                   }}
                 >
                   <PlayerCard
@@ -123,7 +123,7 @@ export const OnboardingPage = () => {
                 <div 
                   className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
                   style={{
-                    transform: 'rotate(8deg)',
+                    transform: 'rotate(0deg)',
                   }}
                 >
                   <PlayerCard
@@ -133,6 +133,21 @@ export const OnboardingPage = () => {
                     price="13.5 USDC"
                     photo="https://backend.liverpoolfc.com/sites/default/files/styles/sm/public/2025-09/mohamed-salah-2025-26-headshot-straight_d3131fc8d0587fe6937b5592e4afcfd5.webp?itok=OATKXCBP"
                     index={1}
+                  />
+                </div>
+                <div 
+                  className="w-24 transition-all duration-500 ease-out group-hover/cards:rotate-0"
+                  style={{
+                    transform: 'rotate(10deg)',
+                  }}
+                >
+                  <PlayerCard
+                    name="Bukayo Saka"
+                    position="MID"
+                    team="Arsenal"
+                    price="12.5 USDC"
+                    photo="https://resources.premierleague.com/premierleague/photos/players/250x250/p433177.png"
+                    index={2}
                   />
                 </div>
               </div>
