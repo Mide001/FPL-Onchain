@@ -48,6 +48,19 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'bbci.co.uk',
       },
+      // Sportmonks image CDNs (add common hosts used for thumbnails)
+      {
+        protocol: 'https',
+        hostname: 'media.api-sportmonks.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sportmonks.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.sportmonks.com',
+      },
     ],
   },
   webpack: (config, { isServer }) => {
