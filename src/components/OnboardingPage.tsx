@@ -57,10 +57,7 @@ export const OnboardingPage = () => {
     return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
   };
 
-  const getEmoji = (index: number) => {
-    const emojis = ['⚽', '🏆', '📊'];
-    return emojis[index % emojis.length];
-  };
+  // Removed emoji helpers
 
   return (
     <div className="min-h-screen bg-white">
@@ -71,9 +68,7 @@ export const OnboardingPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-24">
             {/* Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-600 mb-8">
-              <span className="text-3xl">⚽</span>
-            </div>
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-600 mb-8" />
 
             {/* Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-black mb-6 leading-[1.1] tracking-tight">
@@ -326,9 +321,7 @@ export const OnboardingPage = () => {
                 <>
                   {[1, 2, 3].map((i) => (
                     <div key={i} className="bg-white border border-gray-200 rounded-lg overflow-hidden animate-pulse">
-                      <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100 flex items-center justify-center">
-                        <span className="text-6xl">⚽</span>
-                      </div>
+                      <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100" />
                       <div className="p-6">
                         <div className="h-4 bg-gray-200 rounded w-24 mb-4"></div>
                         <div className="h-6 bg-gray-200 rounded w-full mb-2"></div>
