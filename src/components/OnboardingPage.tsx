@@ -127,8 +127,8 @@ export const OnboardingPage = () => {
                   <thead>
                     <tr className="border-b border-gray-200">
                       <th className="text-center py-2 px-2 font-semibold text-black text-xs border-r border-gray-200 w-10">S/N</th>
-                      <th className="text-left py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Name</th>
-                      <th className="text-left py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Team</th>
+                      <th className="text-left py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Team Name</th>
+                      <th className="text-right py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Value</th>
                       <th className="text-right py-2 px-2 font-semibold text-black text-xs border-r border-gray-200">Points</th>
                       <th className="text-center py-2 px-2 font-semibold text-black text-xs w-8"></th>
                     </tr>
@@ -136,8 +136,8 @@ export const OnboardingPage = () => {
                   <tbody>
                     <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">1</td>
-                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Alex Johnson</td>
-                      <td className="py-2 px-2 text-gray-600 text-xs border-r border-gray-200">Man City</td>
+                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Thunder Strikers</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">142.5 USDC</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">245</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
@@ -145,8 +145,8 @@ export const OnboardingPage = () => {
                     </tr>
                     <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">2</td>
-                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Sarah Williams</td>
-                      <td className="py-2 px-2 text-gray-600 text-xs border-r border-gray-200">Liverpool</td>
+                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Red Devils FC</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">141.2 USDC</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">238</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-green-600 text-xs">↑</span>
@@ -154,8 +154,8 @@ export const OnboardingPage = () => {
                     </tr>
                     <tr className="hover:bg-gray-50 transition-colors">
                       <td className="py-2 px-2 text-center text-gray-700 text-xs border-r border-gray-200 font-medium">3</td>
-                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Mike Brown</td>
-                      <td className="py-2 px-2 text-gray-600 text-xs border-r border-gray-200">Arsenal</td>
+                      <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Blue Warriors</td>
+                      <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">140.8 USDC</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">232</td>
                       <td className="py-2 px-2 text-center">
                         <span className="text-red-600 text-xs">↓</span>
