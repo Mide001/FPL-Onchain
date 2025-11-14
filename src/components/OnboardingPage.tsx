@@ -58,6 +58,11 @@ export const OnboardingPage = () => {
   };
 
   // Removed emoji helpers
+  // Mock wager values for the UI section
+  const leftWagerPoints = 68;
+  const rightWagerPoints = 62;
+  const isLeftWinner = leftWagerPoints > rightWagerPoints;
+  const rewardAmount = 70;
 
   return (
     <div className="min-h-screen bg-white">
@@ -256,24 +261,27 @@ export const OnboardingPage = () => {
               <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-3 mb-4 -mt-4">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs text-gray-600">Week 15 Wager</p>
-                  <div className="flex items-center gap-1 bg-green-100 px-2 py-0.5 rounded-full">
-                    <span className="text-green-700 font-semibold text-xs">+70</span>
-                    <Image 
-                      src="/usdc.png"
-                      alt="USDC"
-                      width={10}
-                      height={10}
-                      className="flex-shrink-0"
-                    />
-                  </div>
+                  <div />
                 </div>
                 
                 <div className="flex items-center gap-2">
                   {/* Left Team Card */}
-                  <div className="flex-1 h-20 bg-white rounded-lg border-2 border-purple-600 p-2 flex flex-col items-center justify-center">
+                  <div className="relative flex-1 h-20 bg-white rounded-lg border-2 border-purple-600 p-2 flex flex-col items-center justify-center">
+                    {isLeftWinner && (
+                      <div className="absolute -bottom-2 -right-2 z-10 bg-green-100 px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                        <span className="text-green-700 font-semibold text-xs">+{rewardAmount}</span>
+                        <Image 
+                          src="/usdc.png"
+                          alt="USDC"
+                          width={10}
+                          height={10}
+                          className="flex-shrink-0"
+                        />
+                      </div>
+                    )}
                     <p className="font-semibold text-black text-[10px] mb-0.5 text-center leading-tight">Thunder Strikers</p>
                     <p className="text-gray-500 text-[9px] mb-1">Your Team</p>
-                    <p className="font-bold text-purple-600 text-sm">68</p>
+                    <p className="font-bold text-purple-600 text-sm">{leftWagerPoints}</p>
                     <p className="text-gray-500 text-[8px]">pts</p>
                   </div>
                   
@@ -283,10 +291,22 @@ export const OnboardingPage = () => {
                   </div>
                   
                   {/* Right Team Card */}
-                  <div className="flex-1 h-20 bg-gray-50 rounded-lg border-2 border-gray-300 p-2 flex flex-col items-center justify-center">
+                  <div className="relative flex-1 h-20 bg-gray-50 rounded-lg border-2 border-gray-300 p-2 flex flex-col items-center justify-center">
+                    {!isLeftWinner && (
+                      <div className="absolute -bottom-2 -right-2 z-10 bg-green-100 px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                        <span className="text-green-700 font-semibold text-xs">+{rewardAmount}</span>
+                        <Image 
+                          src="/usdc.png"
+                          alt="USDC"
+                          width={10}
+                          height={10}
+                          className="flex-shrink-0"
+                        />
+                      </div>
+                    )}
                     <p className="font-semibold text-black text-[10px] mb-0.5 text-center leading-tight">Red Devils FC</p>
                     <p className="text-gray-500 text-[9px] mb-1">Opponent</p>
-                    <p className="font-bold text-gray-600 text-sm">62</p>
+                    <p className="font-bold text-gray-600 text-sm">{rightWagerPoints}</p>
                     <p className="text-gray-500 text-[8px]">pts</p>
                   </div>
                 </div>
