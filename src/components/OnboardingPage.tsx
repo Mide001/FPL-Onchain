@@ -208,7 +208,7 @@ export const OnboardingPage = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
+            <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group flex flex-col">
               {/* Wager Card */}
               <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-3 mb-4">
                 <div className="flex items-center justify-between mb-2">
