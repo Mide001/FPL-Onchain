@@ -94,7 +94,7 @@ export const OnboardingPage = () => {
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               <h3 className="text-xl font-semibold text-black mb-4 tracking-tight">Pick Your Squad</h3>
               <p className="text-gray-600 leading-relaxed text-sm">
-                Build your squad of 15 Premier League players using your USDC balance and squad strength points, with a maximum squad strength of 100.
+                Build your squad of 15 Premier League players using USDC and squad strength points, with a maximum squad strength of 100 points.
               </p>
             </div>
 
