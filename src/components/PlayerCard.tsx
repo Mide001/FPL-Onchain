@@ -22,7 +22,8 @@ export const PlayerCard = ({ name, position, team, price, photo }: PlayerCardPro
               alt={name}
               width={64}
               height={64}
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover rounded-full object-top"
+              style={{ objectPosition: 'top center' }}
               unoptimized
             />
           ) : (

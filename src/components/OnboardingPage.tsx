@@ -112,7 +112,7 @@ export const OnboardingPage = () => {
                   position="MID"
                   team="Liverpool"
                   price="13.5 USDC"
-                  photo="https://img.a.transfermarkt.technology/portrait/header/148455-1671435885.jpg?lm=1"
+                  photo="https://upload.wikimedia.org/wikipedia/commons/8/8c/Mohamed_Salah_2018.jpg"
                 />
               </div>
             </div>
