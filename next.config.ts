@@ -28,6 +28,26 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cryptologos.cc',
       },
+      {
+        protocol: 'https',
+        hostname: 'ichef.bbci.co.uk',
+      },
+      {
+        protocol: 'https',
+        hostname: 'e0.365dm.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.skysports.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.skysports.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.bbci.co.uk',
+      },
     ],
   },
   webpack: (config, { isServer }) => {

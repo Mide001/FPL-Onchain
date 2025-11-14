@@ -12,6 +12,7 @@ interface NewsItem {
   link: string;
   pubDate: string;
   category?: string;
+  image?: string;
 }
 
 export const OnboardingPage = () => {
@@ -346,8 +347,20 @@ export const OnboardingPage = () => {
                     rel="noopener noreferrer"
                     className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 transition-all duration-200 group cursor-pointer block"
                   >
-                    <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100 flex items-center justify-center">
-                      <span className="text-6xl">{getEmoji(index)}</span>
+                    <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100 relative overflow-hidden">
+                      {item.image ? (
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-200"
+                          unoptimized
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-6xl">{getEmoji(index)}</span>
+                        </div>
+                      )}
                     </div>
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-2">

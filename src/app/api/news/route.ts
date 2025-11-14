@@ -9,6 +9,7 @@ interface NewsItem {
   link: string;
   pubDate: string;
   category?: string;
+  image?: string;
 }
 
 export async function GET() {
@@ -26,13 +27,44 @@ export async function GET() {
         const feed = await parser.parseURL(source);
         
         if (feed.items && feed.items.length > 0) {
-          const items: NewsItem[] = feed.items.map((item) => ({
-            title: item.title || 'No title',
-            description: item.contentSnippet || item.content || item.description || '',
-            link: item.link || '#',
-            pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
-            category: item.categories?.[0] || 'News',
-          }));
+          const items: NewsItem[] = feed.items.map((item) => {
+            // Extract image from content or enclosure
+            let image: string | undefined;
+            
+            // Try to get image from enclosure
+            if (item.enclosure && item.enclosure.type?.startsWith('image/')) {
+              image = item.enclosure.url;
+            }
+            
+            // Try to extract image from content/description HTML
+            if (!image && item.content) {
+              const imgMatch = item.content.match(/<img[^>]+src="([^"]+)"/i);
+              if (imgMatch) {
+                image = imgMatch[1];
+              }
+            }
+            
+            if (!image && item.contentSnippet) {
+              const imgMatch = item.contentSnippet.match(/<img[^>]+src="([^"]+)"/i);
+              if (imgMatch) {
+                image = imgMatch[1];
+              }
+            }
+            
+            // Try to get from itunes image
+            if (!image && (item as any).itunes?.image) {
+              image = (item as any).itunes.image;
+            }
+            
+            return {
+              title: item.title || 'No title',
+              description: item.contentSnippet || item.content || item.description || '',
+              link: item.link || '#',
+              pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
+              category: item.categories?.[0] || 'News',
+              image: image,
+            };
+          });
           
           allNews.push(...items);
         }
