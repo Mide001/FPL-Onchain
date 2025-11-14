@@ -46,7 +46,7 @@ export const OnboardingPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
               <button
                 onClick={handlePlayGame}
-                className="px-10 py-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-all duration-200 text-base tracking-tight shadow-sm hover:shadow-md"
+                className="px-10 py-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-all duration-200 text-base tracking-tight shadow-sm hover:shadow-md border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
               >
                 {isConnected ? 'Play Game' : 'Get Started'}
               </button>
