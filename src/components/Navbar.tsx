@@ -9,7 +9,6 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <span className="text-2xl">⚽</span>
             <span className="text-xl font-bold text-purple-600 tracking-tight">
               FPL-Onchain
             </span>
