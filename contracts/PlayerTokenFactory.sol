@@ -57,16 +57,17 @@ contract PlayerTokenFactory is Ownable {
         string memory tokenName = string(abi.encodePacked(playerName, " Token"));
         
         // Deploy new PlayerToken
+        // Set owner to this factory contract so it can call setPlayerInfo
         PlayerToken token = new PlayerToken(
             tokenName,
             symbol,
             paymentToken,
-            msg.sender
+            address(this)
         );
         
         tokenAddress = address(token);
         
-        // Set player info
+        // Set player info (factory is the owner, so this will work)
         token.setPlayerInfo(playerName, playerId);
         
         // Store mappings
