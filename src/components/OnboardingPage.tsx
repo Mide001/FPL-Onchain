@@ -264,6 +264,80 @@ export const OnboardingPage = () => {
               </div>
             </div>
           </div>
+
+          {/* Premier League News Section */}
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">
+                Premier League News
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Stay updated with the latest from the Premier League
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* News Card 1 */}
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 transition-all duration-200 group cursor-pointer">
+                <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100 flex items-center justify-center">
+                  <span className="text-6xl">⚽</span>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs text-gray-500">2 hours ago</span>
+                    <span className="text-gray-300">•</span>
+                    <span className="text-xs text-purple-600 font-medium">Transfer News</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-black mb-2 group-hover:text-purple-600 transition-colors">
+                    Haaland Scores Hat-Trick in City Victory
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Erling Haaland continues his impressive form with another hat-trick as Manchester City secure a 4-1 win against their rivals.
+                  </p>
+                </div>
+              </div>
+
+              {/* News Card 2 */}
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 transition-all duration-200 group cursor-pointer">
+                <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100 flex items-center justify-center">
+                  <span className="text-6xl">🏆</span>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs text-gray-500">5 hours ago</span>
+                    <span className="text-gray-300">•</span>
+                    <span className="text-xs text-purple-600 font-medium">Match Report</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-black mb-2 group-hover:text-purple-600 transition-colors">
+                    Liverpool Extend Unbeaten Run
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Mohamed Salah leads Liverpool to a 3-0 victory, extending their unbeaten streak to 8 matches in the Premier League.
+                  </p>
+                </div>
+              </div>
+
+              {/* News Card 3 */}
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-purple-600 transition-all duration-200 group cursor-pointer">
+                <div className="h-48 bg-gradient-to-br from-purple-100 to-gray-100 flex items-center justify-center">
+                  <span className="text-6xl">📊</span>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs text-gray-500">1 day ago</span>
+                    <span className="text-gray-300">•</span>
+                    <span className="text-xs text-purple-600 font-medium">Statistics</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-black mb-2 group-hover:text-purple-600 transition-colors">
+                    Arsenal Top the Table After Weekend
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Arsenal move to the top of the Premier League table after a convincing 2-0 win, with Bukayo Saka providing both assists.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
