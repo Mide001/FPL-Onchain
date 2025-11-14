@@ -210,41 +210,41 @@ export const OnboardingPage = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               {/* Wager Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-4 mb-4">
-                <div className="flex items-center justify-between mb-3">
+              <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-3 mb-4">
+                <div className="flex items-center justify-between mb-2">
                   <p className="text-xs text-gray-600">Week 15 Wager</p>
-                  <div className="flex items-center gap-1 bg-green-100 px-2 py-1 rounded-full">
+                  <div className="flex items-center gap-1 bg-green-100 px-2 py-0.5 rounded-full">
                     <span className="text-green-700 font-semibold text-xs">+70</span>
                     <Image 
                       src="/usdc.png"
                       alt="USDC"
-                      width={12}
-                      height={12}
+                      width={10}
+                      height={10}
                       className="flex-shrink-0"
                     />
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   {/* Left Team Card */}
-                  <div className="flex-1 aspect-square bg-white rounded-lg border-2 border-purple-600 p-3 flex flex-col items-center justify-center">
-                    <p className="font-semibold text-black text-xs mb-1 text-center">Thunder Strikers</p>
-                    <p className="text-gray-500 text-[10px] mb-2">Your Team</p>
-                    <p className="font-bold text-purple-600 text-lg">68</p>
-                    <p className="text-gray-500 text-[9px]">pts</p>
+                  <div className="flex-1 h-20 bg-white rounded-lg border-2 border-purple-600 p-2 flex flex-col items-center justify-center">
+                    <p className="font-semibold text-black text-[10px] mb-0.5 text-center leading-tight">Thunder Strikers</p>
+                    <p className="text-gray-500 text-[9px] mb-1">Your Team</p>
+                    <p className="font-bold text-purple-600 text-sm">68</p>
+                    <p className="text-gray-500 text-[8px]">pts</p>
                   </div>
                   
                   {/* VS Center */}
                   <div className="flex-shrink-0">
-                    <span className="text-gray-400 font-semibold text-sm">vs</span>
+                    <span className="text-gray-400 font-semibold text-xs">vs</span>
                   </div>
                   
                   {/* Right Team Card */}
-                  <div className="flex-1 aspect-square bg-gray-50 rounded-lg border-2 border-gray-300 p-3 flex flex-col items-center justify-center">
-                    <p className="font-semibold text-black text-xs mb-1 text-center">Red Devils FC</p>
-                    <p className="text-gray-500 text-[10px] mb-2">Opponent</p>
-                    <p className="font-bold text-gray-600 text-lg">62</p>
-                    <p className="text-gray-500 text-[9px]">pts</p>
+                  <div className="flex-1 h-20 bg-gray-50 rounded-lg border-2 border-gray-300 p-2 flex flex-col items-center justify-center">
+                    <p className="font-semibold text-black text-[10px] mb-0.5 text-center leading-tight">Red Devils FC</p>
+                    <p className="text-gray-500 text-[9px] mb-1">Opponent</p>
+                    <p className="font-bold text-gray-600 text-sm">62</p>
+                    <p className="text-gray-500 text-[8px]">pts</p>
                   </div>
                 </div>
               </div>
