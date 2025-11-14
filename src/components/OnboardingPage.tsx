@@ -2,18 +2,17 @@
 
 import { Navbar } from "@/components/Navbar";
 import { useAccount } from "wagmi";
-import { useRouter } from "next/navigation";
 
 export const OnboardingPage = () => {
   const { isConnected } = useAccount();
-  const router = useRouter();
 
   const handlePlayGame = () => {
     if (isConnected) {
       // Navigate to game page when implemented
-      router.push('/game');
+      // For now, just show a message or scroll
+      alert('Game page coming soon!');
     } else {
-      // Scroll to connect button or show connect modal
+      // Scroll to connect button
       document.getElementById('connect-section')?.scrollIntoView({ behavior: 'smooth' });
     }
   };
