@@ -140,7 +140,7 @@ export const OnboardingPage = () => {
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Thunder Strikers</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
                         <div className="flex items-center justify-end gap-1">
-                          <span>142.5</span>
+                          <span>138.2</span>
                           <Image 
                             src="/usdc.png"
                             alt="USDC"
@@ -160,7 +160,7 @@ export const OnboardingPage = () => {
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Red Devils FC</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
                         <div className="flex items-center justify-end gap-1">
-                          <span>141.2</span>
+                          <span>144.8</span>
                           <Image 
                             src="/usdc.png"
                             alt="USDC"
@@ -180,7 +180,7 @@ export const OnboardingPage = () => {
                       <td className="py-2 px-2 text-gray-700 text-xs border-r border-gray-200">Blue Warriors</td>
                       <td className="py-2 px-2 text-right font-semibold text-black text-xs border-r border-gray-200">
                         <div className="flex items-center justify-end gap-1">
-                          <span>140.8</span>
+                          <span>139.5</span>
                           <Image 
                             src="/usdc.png"
                             alt="USDC"
