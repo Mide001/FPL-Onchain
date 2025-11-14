@@ -8,14 +8,6 @@ interface PlayerCardProps {
   team: string;
   price: string;
   photo?: string;
-}
-
-interface PlayerCardProps {
-  name: string;
-  position: string;
-  team: string;
-  price: string;
-  photo?: string;
   index?: number;
 }
 
