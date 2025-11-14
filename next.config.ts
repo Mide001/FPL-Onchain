@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'backend.liverpoolfc.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.arsenal.com',
+      },
     ],
   },
   webpack: (config, { isServer }) => {

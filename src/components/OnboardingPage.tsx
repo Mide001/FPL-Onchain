@@ -146,7 +146,7 @@ export const OnboardingPage = () => {
                     position="MID"
                     team="Arsenal"
                     price="12.5 USDC"
-                    photo="https://resources.premierleague.com/premierleague/photos/players/250x250/p433177.png"
+                    photo="https://www.arsenal.com/sites/default/files/styles/large_16x9/public/images/SAKA_Headshot_web_mxqw4vma.png?h=ad73a5fe&auto=webp&itok=sF_7_QGZ"
                     index={2}
                   />
                 </div>

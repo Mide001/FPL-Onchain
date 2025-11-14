@@ -31,7 +31,7 @@ export const PlayerCard = ({ name, position, team, price, photo, index = 0 }: Pl
           </div>
         )}
         {/* Price Badge */}
-        <div className="absolute top-1 right-1 bg-purple-600 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded-full shadow-sm">
+        <div className="absolute bottom-1 left-1 bg-purple-600 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded-full shadow-sm">
           {price}
         </div>
       </div>
