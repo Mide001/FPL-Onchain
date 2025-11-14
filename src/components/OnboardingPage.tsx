@@ -123,7 +123,7 @@ export const OnboardingPage = () => {
 
             <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-purple-600 transition-all duration-200 group">
               {/* League Table */}
-              <div className="overflow-x-auto mb-4">
+              <div className="overflow-x-auto mb-4 -mt-4">
                 <table className="w-full text-sm border border-gray-200">
                   <thead>
                     <tr className="border-b border-gray-200 bg-purple-50">
