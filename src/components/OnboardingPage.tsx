@@ -112,7 +112,7 @@ export const OnboardingPage = () => {
                   position="MID"
                   team="Liverpool"
                   price="13.5 USDC"
-                  photo="https://resources.premierleague.com/premierleague/photos/players/250x250/p118748.png"
+                  photo="https://img.a.transfermarkt.technology/portrait/header/148455-1671435885.jpg?lm=1"
                 />
               </div>
             </div>

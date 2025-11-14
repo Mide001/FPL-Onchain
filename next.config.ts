@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'resources.premierleague.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.a.transfermarkt.technology',
+      },
     ],
   },
   webpack: (config, { isServer }) => {
