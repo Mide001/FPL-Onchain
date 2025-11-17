@@ -20,6 +20,8 @@ export const OnboardingPage = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [isClubModalOpen, setIsClubModalOpen] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const totalSteps = 1; // Will be updated as we add more steps
   const [clubName, setClubName] = useState("");
   const [clubNameError, setClubNameError] = useState("");
 
@@ -42,26 +44,50 @@ export const OnboardingPage = () => {
   const handlePlayGame = () => {
     if (isConnected) {
       setIsClubModalOpen(true);
+      setCurrentStep(1);
       setClubNameError("");
     }
   };
 
   const handleCloseClubModal = () => {
     setIsClubModalOpen(false);
+    setCurrentStep(1);
     setClubName("");
     setClubNameError("");
   };
 
-  const handleClubSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!clubName.trim()) {
-      setClubNameError("Please enter a name for your fantasy club.");
-      return;
+  const handleNextStep = () => {
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
     }
+  };
 
-    // Placeholder for future logic (e.g., saving club name, navigating)
-    alert(`Welcome, ${clubName}!`);
-    handleCloseClubModal();
+  const handlePreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleStepSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    if (currentStep === 1) {
+      // Step 1: Club Name validation
+      if (!clubName.trim()) {
+        setClubNameError("Please enter a name for your fantasy club.");
+        return;
+      }
+      
+      // If this is the last step, complete the flow
+      if (currentStep === totalSteps) {
+        // Placeholder for future logic (e.g., saving club name, navigating)
+        alert(`Welcome, ${clubName}!`);
+        handleCloseClubModal();
+      } else {
+        handleNextStep();
+      }
+    }
+    // Add more step validations here as we add steps
   };
 
   const formatTimeAgo = (dateString: string) => {
@@ -568,41 +594,80 @@ export const OnboardingPage = () => {
         </div>
       </div>
 
-      {/* Club Name Modal */}
+      {/* Multi-Step Modal */}
       {isClubModalOpen && (
         <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 sm:p-8 space-y-6 animate-fade-in-up" style={{ animationFillMode: "both" }}>
-            <div>
-              <h3 className="text-2xl font-bold text-black mb-2">Name Your Fantasy Club</h3>
-              <p className="text-gray-600 text-sm">
-                This is the identity of your fantasy football team. You can change it later.
-              </p>
+            {/* Progress Indicator */}
+            <div className="flex items-center justify-center gap-2 mb-4">
+              {Array.from({ length: totalSteps }, (_, i) => i + 1).map((step) => (
+                <div
+                  key={step}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    step <= currentStep
+                      ? "bg-purple-600 w-8"
+                      : "bg-gray-200 w-2"
+                  }`}
+                />
+              ))}
             </div>
 
-            <form className="space-y-5" onSubmit={handleClubSubmit}>
-              <div>
-                <label htmlFor="clubName" className="text-sm font-semibold text-gray-700">
-                  Club Name
-                </label>
-                <input
-                  id="clubName"
-                  name="clubName"
-                  type="text"
-                  value={clubName}
-                  onChange={(event) => {
-                    setClubName(event.target.value);
-                    setClubNameError("");
-                  }}
-                  placeholder="e.g., Thunder Strikers FC"
-                  className={`mt-2 w-full rounded-xl border px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 focus:bg-white ${
-                    clubNameError ? "border-red-500" : "border-gray-200"
-                  }`}
-                  autoFocus
-                />
-                {clubNameError && <p className="text-sm text-red-500 mt-1">{clubNameError}</p>}
-              </div>
+            {/* Step Content */}
+            <form className="space-y-5" onSubmit={handleStepSubmit}>
+              {/* Step 1: Club Name */}
+              {currentStep === 1 && (
+                <div>
+                  <div className="mb-5">
+                    <h3 className="text-2xl font-bold text-black mb-2">Name Your Fantasy Club</h3>
+                    <p className="text-gray-600 text-sm">
+                      This is the identity of your fantasy football team. You can change it later.
+                    </p>
+                  </div>
+                  <div>
+                    <label htmlFor="clubName" className="text-sm font-semibold text-gray-700">
+                      Club Name
+                    </label>
+                    <input
+                      id="clubName"
+                      name="clubName"
+                      type="text"
+                      value={clubName}
+                      onChange={(event) => {
+                        setClubName(event.target.value);
+                        setClubNameError("");
+                      }}
+                      placeholder="e.g., Thunder Strikers FC"
+                      className={`mt-2 w-full rounded-xl border px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 focus:bg-white ${
+                        clubNameError ? "border-red-500" : "border-gray-200"
+                      }`}
+                      autoFocus
+                    />
+                    {clubNameError && <p className="text-sm text-red-500 mt-1">{clubNameError}</p>}
+                  </div>
+                </div>
+              )}
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              {/* Add more steps here as needed */}
+              {/* Example: Step 2 would go here */}
+              {/* {currentStep === 2 && (
+                <div>
+                  <h3 className="text-2xl font-bold text-black mb-2">Step 2 Title</h3>
+                  <p className="text-gray-600 text-sm">Step 2 description</p>
+                  {/* Step 2 content */}
+                {/* </div>
+              )} */}
+
+              {/* Navigation Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+                {currentStep > 1 && (
+                  <button
+                    type="button"
+                    onClick={handlePreviousStep}
+                    className="px-5 py-3 rounded-full border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+                  >
+                    Previous
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={handleCloseClubModal}
@@ -614,7 +679,7 @@ export const OnboardingPage = () => {
                   type="submit"
                   className="px-6 py-3 rounded-full bg-black text-white font-semibold hover:bg-gray-900 transition-colors"
                 >
-                  Save
+                  {currentStep === totalSteps ? "Save" : "Next"}
                 </button>
               </div>
             </form>
