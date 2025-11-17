@@ -150,18 +150,18 @@ export const OnboardingPage = () => {
               {isConnected && (
                 <button
                   onClick={handlePlayGame}
-                  className="group relative px-10 py-4.5 bg-black text-white font-bold rounded-full hover:bg-gray-900 transition-all duration-300 text-base tracking-tight shadow-2xl hover:shadow-purple-500/20 hover:scale-105 border-0 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 overflow-hidden"
+                  className="group relative px-6 py-4.5 bg-black text-white font-semibold rounded-full hover:bg-gray-900 transition-all duration-300 text-sm tracking-tight shadow-2xl hover:shadow-purple-500/20 hover:scale-105 border-0 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     Get Started
-                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 </button>
               )}
-              <button className="px-10 py-4.5 bg-white/80 backdrop-blur-sm text-black font-bold rounded-full border-2 border-gray-200/50 hover:border-purple-300 hover:bg-white hover:text-black transition-all duration-300 text-base tracking-tight shadow-lg hover:shadow-xl hover:scale-105">
+              <button className="px-6 py-4.5 bg-white/80 backdrop-blur-sm text-black font-semibold rounded-full border-2 border-gray-200/50 hover:border-purple-300 hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-tight shadow-lg hover:shadow-xl hover:scale-105">
                 Learn More
               </button>
             </div>
