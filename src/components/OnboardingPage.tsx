@@ -594,7 +594,7 @@ export const OnboardingPage = () => {
                     setClubNameError("");
                   }}
                   placeholder="e.g., Thunder Strikers FC"
-                  className={`mt-2 w-full rounded-xl border px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 ${
+                  className={`mt-2 w-full rounded-xl border px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 focus:bg-white ${
                     clubNameError ? "border-red-500" : "border-gray-200"
                   }`}
                   autoFocus
@@ -602,7 +602,7 @@ export const OnboardingPage = () => {
                 {clubNameError && <p className="text-sm text-red-500 mt-1">{clubNameError}</p>}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   type="button"
                   onClick={handleCloseClubModal}
@@ -614,7 +614,7 @@ export const OnboardingPage = () => {
                   type="submit"
                   className="px-6 py-3 rounded-full bg-black text-white font-semibold hover:bg-gray-900 transition-colors"
                 >
-                  Save Club Name
+                  Save
                 </button>
               </div>
             </form>
