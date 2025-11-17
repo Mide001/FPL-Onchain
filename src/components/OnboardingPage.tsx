@@ -21,9 +21,35 @@ export const OnboardingPage = () => {
   const [loading, setLoading] = useState(true);
   const [isClubModalOpen, setIsClubModalOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 1; // Will be updated as we add more steps
+  const totalSteps = 2; // Step 1: Club Name, Step 2: Supported Team
   const [clubName, setClubName] = useState("");
   const [clubNameError, setClubNameError] = useState("");
+  const [selectedClub, setSelectedClub] = useState<string>("");
+  const [clubError, setClubError] = useState("");
+
+  // Premier League Clubs 2024/25
+  const premierLeagueClubs = [
+    { name: "Arsenal", logo: "https://resources.premierleague.com/premierleague/badges/50/t3.png" },
+    { name: "Aston Villa", logo: "https://resources.premierleague.com/premierleague/badges/50/t7.png" },
+    { name: "Bournemouth", logo: "https://resources.premierleague.com/premierleague/badges/50/t91.png" },
+    { name: "Brentford", logo: "https://resources.premierleague.com/premierleague/badges/50/t94.png" },
+    { name: "Brighton", logo: "https://resources.premierleague.com/premierleague/badges/50/t36.png" },
+    { name: "Chelsea", logo: "https://resources.premierleague.com/premierleague/badges/50/t8.png" },
+    { name: "Crystal Palace", logo: "https://resources.premierleague.com/premierleague/badges/50/t31.png" },
+    { name: "Everton", logo: "https://resources.premierleague.com/premierleague/badges/50/t11.png" },
+    { name: "Fulham", logo: "https://resources.premierleague.com/premierleague/badges/50/t54.png" },
+    { name: "Ipswich", logo: "https://resources.premierleague.com/premierleague/badges/50/t49.png" },
+    { name: "Leicester", logo: "https://resources.premierleague.com/premierleague/badges/50/t13.png" },
+    { name: "Liverpool", logo: "https://resources.premierleague.com/premierleague/badges/50/t14.png" },
+    { name: "Manchester City", logo: "https://resources.premierleague.com/premierleague/badges/50/t43.png" },
+    { name: "Manchester United", logo: "https://resources.premierleague.com/premierleague/badges/50/t1.png" },
+    { name: "Newcastle", logo: "https://resources.premierleague.com/premierleague/badges/50/t4.png" },
+    { name: "Nottingham Forest", logo: "https://resources.premierleague.com/premierleague/badges/50/t17.png" },
+    { name: "Southampton", logo: "https://resources.premierleague.com/premierleague/badges/50/t20.png" },
+    { name: "Tottenham", logo: "https://resources.premierleague.com/premierleague/badges/50/t6.png" },
+    { name: "West Ham", logo: "https://resources.premierleague.com/premierleague/badges/50/t21.png" },
+    { name: "Wolves", logo: "https://resources.premierleague.com/premierleague/badges/50/t39.png" },
+  ];
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -54,6 +80,8 @@ export const OnboardingPage = () => {
     setCurrentStep(1);
     setClubName("");
     setClubNameError("");
+    setSelectedClub("");
+    setClubError("");
   };
 
   const handleNextStep = () => {
@@ -77,17 +105,18 @@ export const OnboardingPage = () => {
         setClubNameError("Please enter a name for your fantasy club.");
         return;
       }
-      
-      // If this is the last step, complete the flow
-      if (currentStep === totalSteps) {
-        // Placeholder for future logic (e.g., saving club name, navigating)
-        alert(`Welcome, ${clubName}!`);
-        handleCloseClubModal();
-      } else {
-        handleNextStep();
+      handleNextStep();
+    } else if (currentStep === 2) {
+      // Step 2: Supported Club validation
+      if (!selectedClub) {
+        setClubError("Please select your supported Premier League club.");
+        return;
       }
+      
+      // Complete the flow
+      alert(`Welcome, ${clubName}! You support ${selectedClub}.`);
+      handleCloseClubModal();
     }
-    // Add more step validations here as we add steps
   };
 
   const formatTimeAgo = (dateString: string) => {
@@ -647,15 +676,57 @@ export const OnboardingPage = () => {
                 </div>
               )}
 
-              {/* Add more steps here as needed */}
-              {/* Example: Step 2 would go here */}
-              {/* {currentStep === 2 && (
+              {/* Step 2: Supported Club Selection */}
+              {currentStep === 2 && (
                 <div>
-                  <h3 className="text-2xl font-bold text-black mb-2">Step 2 Title</h3>
-                  <p className="text-gray-600 text-sm">Step 2 description</p>
-                  {/* Step 2 content */}
-                {/* </div>
-              )} */}
+                  <div className="mb-5">
+                    <h3 className="text-2xl font-bold text-black mb-2">Which Club Do You Support?</h3>
+                    <p className="text-gray-600 text-sm">
+                      Select your favorite Premier League club. This helps personalize your experience.
+                    </p>
+                  </div>
+                  
+                  <div className="max-h-[400px] overflow-y-auto pr-2">
+                    <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
+                      {premierLeagueClubs.map((club) => (
+                        <button
+                          key={club.name}
+                          type="button"
+                          onClick={() => {
+                            setSelectedClub(club.name);
+                            setClubError("");
+                          }}
+                          className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all duration-200 hover:scale-105 ${
+                            selectedClub === club.name
+                              ? "border-purple-600 bg-purple-50 shadow-md"
+                              : "border-gray-200 bg-white hover:border-purple-300 hover:bg-purple-50/30"
+                          }`}
+                        >
+                          <div className="w-12 h-12 mb-2 flex items-center justify-center">
+                            <Image
+                              src={club.logo}
+                              alt={club.name}
+                              width={48}
+                              height={48}
+                              className="object-contain"
+                              unoptimized
+                            />
+                          </div>
+                          <span className={`text-xs font-medium text-center leading-tight ${
+                            selectedClub === club.name ? "text-purple-700" : "text-gray-700"
+                          }`}>
+                            {club.name}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {clubError && (
+                    <p className="text-sm text-red-500 mt-3 text-center">{clubError}</p>
+                  )}
+                </div>
+              )}
 
               {/* Navigation Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
