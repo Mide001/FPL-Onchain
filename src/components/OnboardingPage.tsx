@@ -678,7 +678,7 @@ export const OnboardingPage = () => {
 
               {/* Step 2: Supported Club Selection */}
               {currentStep === 2 && (
-                <div>
+                <div className="w-full">
                   <div className="mb-5">
                     <h3 className="text-2xl font-bold text-black mb-2">Which Club Do You Support?</h3>
                     <p className="text-gray-600 text-sm">
@@ -686,40 +686,43 @@ export const OnboardingPage = () => {
                     </p>
                   </div>
                   
-                  <div className="max-h-[400px] overflow-y-auto pr-2">
-                    <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
-                      {premierLeagueClubs.map((club) => (
-                        <button
-                          key={club.name}
-                          type="button"
-                          onClick={() => {
-                            setSelectedClub(club.name);
-                            setClubError("");
-                          }}
-                          className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all duration-200 hover:scale-105 ${
-                            selectedClub === club.name
-                              ? "border-purple-600 bg-purple-50 shadow-md"
-                              : "border-gray-200 bg-white hover:border-purple-300 hover:bg-purple-50/30"
-                          }`}
-                        >
-                          <div className="w-12 h-12 mb-2 flex items-center justify-center">
-                            <Image
-                              src={club.logo}
-                              alt={club.name}
-                              width={48}
-                              height={48}
-                              className="object-contain"
-                              unoptimized
-                            />
-                          </div>
-                          <span className={`text-xs font-medium text-center leading-tight ${
-                            selectedClub === club.name ? "text-purple-700" : "text-gray-700"
-                          }`}>
-                            {club.name}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
+                  <div className="w-full max-h-[450px] overflow-y-auto overflow-x-hidden flex flex-col items-center">
+                    {premierLeagueClubs.map((club, index) => (
+                      <button
+                        key={club.name}
+                        type="button"
+                        onClick={() => {
+                          setSelectedClub(club.name);
+                          setClubError("");
+                        }}
+                        className={`w-[calc(100%-2rem)] max-w-full flex items-center gap-3 p-3 rounded-lg border-2 transition-all duration-200 text-left min-w-0 !bg-white hover:!bg-white active:!bg-white hover:!text-gray-900 active:!text-gray-900 ${index > 0 ? 'mt-3' : ''} ${
+                          selectedClub === club.name
+                            ? "border-purple-600 shadow-md"
+                            : "border-gray-300 hover:border-purple-300"
+                        }`}
+                      >
+                        <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center">
+                          <Image
+                            src={club.logo}
+                            alt={club.name}
+                            width={40}
+                            height={40}
+                            className="object-contain"
+                            unoptimized
+                          />
+                        </div>
+                        <span className={`text-sm font-semibold flex-1 min-w-0 truncate hover:text-gray-900 ${
+                          selectedClub === club.name ? "text-purple-700" : "text-gray-900"
+                        }`}>
+                          {club.name}
+                        </span>
+                        {selectedClub === club.name && (
+                          <svg className="w-5 h-5 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        )}
+                      </button>
+                    ))}
                   </div>
                   
                   {clubError && (
