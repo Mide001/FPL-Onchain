@@ -19,6 +19,9 @@ export const OnboardingPage = () => {
   const { isConnected } = useAppKitAccount();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isClubModalOpen, setIsClubModalOpen] = useState(false);
+  const [clubName, setClubName] = useState("");
+  const [clubNameError, setClubNameError] = useState("");
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -38,12 +41,27 @@ export const OnboardingPage = () => {
 
   const handlePlayGame = () => {
     if (isConnected) {
-      // Navigate to game page when implemented
-      alert("Game page coming soon!");
-    } else {
-      // Open connect modal
-      // The connect button in navbar will handle this
+      setIsClubModalOpen(true);
+      setClubNameError("");
     }
+  };
+
+  const handleCloseClubModal = () => {
+    setIsClubModalOpen(false);
+    setClubName("");
+    setClubNameError("");
+  };
+
+  const handleClubSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!clubName.trim()) {
+      setClubNameError("Please enter a name for your fantasy club.");
+      return;
+    }
+
+    // Placeholder for future logic (e.g., saving club name, navigating)
+    alert(`Welcome, ${clubName}!`);
+    handleCloseClubModal();
   };
 
   const formatTimeAgo = (dateString: string) => {
@@ -549,6 +567,60 @@ export const OnboardingPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Club Name Modal */}
+      {isClubModalOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 sm:p-8 space-y-6 animate-fade-in-up" style={{ animationFillMode: "both" }}>
+            <div>
+              <h3 className="text-2xl font-bold text-black mb-2">Name Your Fantasy Club</h3>
+              <p className="text-gray-600 text-sm">
+                This is the identity of your fantasy football team. You can change it later.
+              </p>
+            </div>
+
+            <form className="space-y-5" onSubmit={handleClubSubmit}>
+              <div>
+                <label htmlFor="clubName" className="text-sm font-semibold text-gray-700">
+                  Club Name
+                </label>
+                <input
+                  id="clubName"
+                  name="clubName"
+                  type="text"
+                  value={clubName}
+                  onChange={(event) => {
+                    setClubName(event.target.value);
+                    setClubNameError("");
+                  }}
+                  placeholder="e.g., Thunder Strikers FC"
+                  className={`mt-2 w-full rounded-xl border px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 ${
+                    clubNameError ? "border-red-500" : "border-gray-200"
+                  }`}
+                  autoFocus
+                />
+                {clubNameError && <p className="text-sm text-red-500 mt-1">{clubNameError}</p>}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+                <button
+                  type="button"
+                  onClick={handleCloseClubModal}
+                  className="px-5 py-3 rounded-full border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-3 rounded-full bg-black text-white font-semibold hover:bg-gray-900 transition-colors"
+                >
+                  Save Club Name
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
