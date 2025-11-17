@@ -161,7 +161,7 @@ export const OnboardingPage = () => {
                   <span className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 </button>
               )}
-              <button className="px-10 py-4.5 bg-white/80 backdrop-blur-sm text-black font-bold rounded-full border-2 border-gray-200/50 hover:border-purple-300 hover:bg-white transition-all duration-300 text-base tracking-tight shadow-lg hover:shadow-xl hover:scale-105">
+              <button className="px-10 py-4.5 bg-white/80 backdrop-blur-sm text-black font-bold rounded-full border-2 border-gray-200/50 hover:border-purple-300 hover:bg-white hover:text-black transition-all duration-300 text-base tracking-tight shadow-lg hover:shadow-xl hover:scale-105">
                 Learn More
               </button>
             </div>
