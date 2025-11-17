@@ -21,11 +21,13 @@ export const OnboardingPage = () => {
   const [loading, setLoading] = useState(true);
   const [isClubModalOpen, setIsClubModalOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 2; // Step 1: Club Name, Step 2: Supported Team
+  const totalSteps = 3; // Step 1: Club Name, Step 2: Supported Team, Step 3: Select Squad
   const [clubName, setClubName] = useState("");
   const [clubNameError, setClubNameError] = useState("");
   const [selectedClub, setSelectedClub] = useState<string>("");
   const [clubError, setClubError] = useState("");
+  const [selectedPlayers, setSelectedPlayers] = useState<(string | null)[]>(Array(11).fill(null));
+  const [selectedSubs, setSelectedSubs] = useState<(string | null)[]>(Array(4).fill(null));
 
   // Premier League Clubs 2024/25
   const premierLeagueClubs = [
@@ -82,6 +84,8 @@ export const OnboardingPage = () => {
     setClubNameError("");
     setSelectedClub("");
     setClubError("");
+    setSelectedPlayers(Array(11).fill(null));
+    setSelectedSubs(Array(4).fill(null));
   };
 
   const handleNextStep = () => {
@@ -112,8 +116,10 @@ export const OnboardingPage = () => {
         setClubError("Please select your supported Premier League club.");
         return;
       }
-      
-      // Complete the flow
+      handleNextStep();
+    } else if (currentStep === 3) {
+      // Step 3: Squad validation (for now, just complete)
+      // TODO: Add validation for 11 players and 4 subs
       alert(`Welcome, ${clubName}! You support ${selectedClub}.`);
       handleCloseClubModal();
     }
@@ -728,6 +734,130 @@ export const OnboardingPage = () => {
                   {clubError && (
                     <p className="text-sm text-red-500 mt-3 text-center">{clubError}</p>
                   )}
+                </div>
+              )}
+
+              {/* Step 3: Select Squad */}
+              {currentStep === 3 && (
+                <div className="w-full">
+                  <div className="mb-5">
+                    <h3 className="text-2xl font-bold text-black mb-2">Select Your Starting XI</h3>
+                    <p className="text-gray-600 text-sm">
+                      Choose 11 players for your starting lineup and 4 substitutes for the bench.
+                    </p>
+                  </div>
+
+                  {/* Football Field */}
+                  <div className="w-full bg-gradient-to-b from-green-500 to-green-600 rounded-lg p-4 mb-4 border-2 border-gray-300">
+                    {/* Field Layout - 4-3-3 Formation */}
+                    <div className="relative h-[400px]">
+                      {/* Goal Line (Top) */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-2 bg-white border-2 border-gray-800"></div>
+                      
+                      {/* Penalty Box (Top) */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-16 border-2 border-white"></div>
+                      
+                      {/* Center Circle */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-white"></div>
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full"></div>
+                      
+                      {/* Center Line */}
+                      <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white"></div>
+                      
+                      {/* Penalty Box (Bottom) */}
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-16 border-2 border-white"></div>
+                      
+                      {/* Goal Line (Bottom) */}
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-2 bg-white border-2 border-gray-800"></div>
+
+                      {/* Player Positions - 4-3-3 Formation */}
+                      <div className="absolute inset-0 flex flex-col justify-between p-4">
+                        {/* Goalkeeper */}
+                        <div className="flex justify-center">
+                          <button
+                            type="button"
+                            className="w-16 h-16 rounded-full bg-white border-2 border-gray-800 flex items-center justify-center text-xs font-semibold text-gray-700 hover:border-purple-600 hover:bg-purple-50 transition-all"
+                          >
+                            {selectedPlayers[0] ? selectedPlayers[0].split(' ')[0] : 'GK'}
+                          </button>
+                        </div>
+
+                        {/* Defenders (4) */}
+                        <div className="flex justify-center gap-8">
+                          {[1, 2, 3, 4].map((index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              className="w-14 h-14 rounded-full bg-white border-2 border-gray-800 flex items-center justify-center text-xs font-semibold text-gray-700 hover:border-purple-600 hover:bg-purple-50 transition-all"
+                            >
+                              {selectedPlayers[index] ? selectedPlayers[index].split(' ')[0] : 'DEF'}
+                            </button>
+                          ))}
+                        </div>
+
+                        {/* Midfielders (3) */}
+                        <div className="flex justify-center gap-12">
+                          {[5, 6, 7].map((index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              className="w-14 h-14 rounded-full bg-white border-2 border-gray-800 flex items-center justify-center text-xs font-semibold text-gray-700 hover:border-purple-600 hover:bg-purple-50 transition-all"
+                            >
+                              {selectedPlayers[index] ? selectedPlayers[index].split(' ')[0] : 'MID'}
+                            </button>
+                          ))}
+                        </div>
+
+                        {/* Forwards (3) */}
+                        <div className="flex justify-center gap-8">
+                          {[8, 9, 10].map((index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              className="w-14 h-14 rounded-full bg-white border-2 border-gray-800 flex items-center justify-center text-xs font-semibold text-gray-700 hover:border-purple-600 hover:bg-purple-50 transition-all"
+                            >
+                              {selectedPlayers[index] ? selectedPlayers[index].split(' ')[0] : 'FWD'}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bench (Substitutes) */}
+                  <div className="w-full">
+                    <h4 className="text-lg font-semibold text-black mb-3">Substitutes (4)</h4>
+                    <div className="grid grid-cols-4 gap-3">
+                      {[
+                        { index: 0, position: 'GK' },
+                        { index: 1, position: 'DEF' },
+                        { index: 2, position: 'MID' },
+                        { index: 3, position: 'FWD' }
+                      ].map(({ index, position }) => (
+                        <button
+                          key={index}
+                          type="button"
+                          className="w-full h-20 rounded-lg bg-gray-100 border-2 border-gray-300 flex flex-col items-center justify-center hover:border-purple-600 hover:bg-purple-50 transition-all"
+                        >
+                          {selectedSubs[index] ? (
+                            <>
+                              <span className="text-xs text-gray-500 mb-1">{position}</span>
+                              <span className="text-sm font-semibold text-gray-700">
+                                {selectedSubs[index].split(' ')[0]}
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <span className="text-xs text-gray-500 mb-1">{position}</span>
+                              <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                              </svg>
+                            </>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
 
